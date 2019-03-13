@@ -1,0 +1,1 @@
+insert into `candidat`values(1,'2019-03-13','imedzenned@yahoo.fr','imed','H','ACTIVE','zenned'),(2,'2019-03-13','omarbounemch@yahoo.fr','omar','H','ACTIVE','bounemch');
