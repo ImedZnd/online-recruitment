@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Responsable;
 import com.example.demo.repository.ResponsableRepository;
 import com.example.demo.service.ResponsableService;
 
+@Service
 public class ResponsableServiceImp implements ResponsableService {
 
 	@Autowired

@@ -105,6 +105,8 @@ public class Candidat {
 		this.mail = mail;
 		this.inscription = inscription;
 	}
+	public Candidat() {
 	
+	}
 	
 }

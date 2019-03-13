@@ -3,11 +3,9 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Client;
 
-@Service
 public interface ClientService {
 
 	List<Client> getAll(String sortby);

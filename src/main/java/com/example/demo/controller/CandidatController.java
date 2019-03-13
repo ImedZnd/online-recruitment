@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -21,14 +22,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Candidat;
 import com.example.demo.service.CandidatService;
+import com.example.demo.serviceImpl.CandidatServiceImpl;
 
 @RestController
 @RequestMapping("/api")
 @EnableAutoConfiguration
 public class CandidatController {
 	
+	@Autowired
 	CandidatService candidatService;
 	
+	@CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/candidat/id/{id}")
+    public ResponseEntity<Optional<Candidat>> getCandidatbyId( @PathVariable(value = "id") Long id) {
+
+        System.out.println("get candidat with id\n");
+            return new ResponseEntity<>(
+            		candidatService.getById(id),
+            		HttpStatus.OK
+            		);
+    }
+    
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/candidats/{sortby}")
     public ResponseEntity<List> getAllCandidatSorted(@PathVariable String sortby){
@@ -62,19 +76,9 @@ public class CandidatController {
                     HttpStatus.OK
             );
     }
-    @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/candidats/id/{id}")
-    public ResponseEntity<Optional<Candidat>> getCandidatbyId( @PathVariable(value = "id") Long id) {
-
-        System.out.println("get candidats with id\n");
-            return new ResponseEntity<>(
-            		candidatService.getById(id),
-            		HttpStatus.OK
-            		);
-    }
     
     @CrossOrigin(origins = "*")
-    @PostMapping("/candidats/add")
+    @PostMapping("/candidat/add")
     public ResponseEntity<Candidat> addCandidat(@Valid @RequestBody Candidat candidat) {
 
             System.out.println("add a candidat \n");
@@ -92,7 +96,7 @@ public class CandidatController {
     @CrossOrigin(origins = "*")
     @PutMapping("/candidats/update")
     public ResponseEntity<Candidat> updateCandidat( @RequestBody Candidat newCandidat)  {
-            System.out.println("update book \n");
+            System.out.println("update candidat \n");
             Optional<Candidat> oldCandidat = getCandidatbyId(newCandidat.getId()).getBody();
             if (oldCandidat.isPresent()) {
                 return new ResponseEntity<>(addCandidat(newCandidat).getBody(), HttpStatus.OK);

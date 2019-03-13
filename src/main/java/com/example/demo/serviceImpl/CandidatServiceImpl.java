@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Candidat;
 import com.example.demo.repository.CandidatRepository;
 import com.example.demo.service.CandidatService;
 
+@Service
 public class CandidatServiceImpl implements CandidatService {
 
 	@Autowired
