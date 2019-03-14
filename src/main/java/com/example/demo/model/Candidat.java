@@ -54,7 +54,7 @@ public class Candidat {
 		this.name = nom;
 	}
 
-	public String getsSurename() {
+	public String getSurename() {
 		return surename;
 	}
 
@@ -91,6 +91,8 @@ public class Candidat {
 	}
 
 	public void setInscription(Date inscription) {
+		
+		
 		this.inscription = inscription;
 	}
 
