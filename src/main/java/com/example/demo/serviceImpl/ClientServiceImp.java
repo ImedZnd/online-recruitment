@@ -54,4 +54,10 @@ public class ClientServiceImp  implements ClientService
 		return clientRepository.findAllClientByStatus(status);
 	}
 
+	@Override
+	public Optional<Client> getByName(String name) {
+		// TODO Auto-generated method stub
+		return clientRepository.findClientByName(name);
+	}
+
 }

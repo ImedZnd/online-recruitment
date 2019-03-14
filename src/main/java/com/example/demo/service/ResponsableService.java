@@ -17,9 +17,11 @@ public interface ResponsableService {
 
     Responsable addOne(Responsable client);
 
-    List<Responsable> getResponsableByName(String name);
+    List<Responsable> getByName(String name);
     
-    List<Responsable> getResponsableByRole(Enum role);
+    List<Responsable> getBySurename(String surename);
+    
+    List<Responsable> getByRole(Enum role);
         
-    List<Responsable> getResponsableByStatus(String status);
+    List<Responsable> getByStatus(String status);
 }

@@ -11,6 +11,8 @@ public interface ClientService {
 	List<Client> getAll(String sortby);
 
     Optional<Client> getById(Long id);
+    
+    Optional<Client> getByName(String name);
 
     void deleteById(Long id);
 

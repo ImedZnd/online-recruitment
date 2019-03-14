@@ -41,22 +41,30 @@ public class ResponsableServiceImp implements ResponsableService {
 	}
 
 	@Override
-	public List<Responsable> getResponsableByRole(Enum role) {
+	public List<Responsable> getByRole(Enum role) {
 		// TODO Auto-generated method stub
 		return responsableRepository.findResponsableByRole(role);
 	}
 
 	@Override
-	public List<Responsable> getResponsableByStatus(String status) {
+	public List<Responsable> getByStatus(String status) {
 		// TODO Auto-generated method stub
 		return responsableRepository.findResponsableByStatus(status);
 	}
 
 	@Override
-	public List<Responsable> getResponsableByName(String name) {
+	public List<Responsable> getByName(String name) {
 		// TODO Auto-generated method stub
 		return responsableRepository.findResponsableByName(name);
 	}
+
+	@Override
+	public List<Responsable> getBySurename(String surename) {
+		// TODO Auto-generated method stub
+		return responsableRepository.findResponsableBySurename(surename);
+	}
+
+
 
 
 

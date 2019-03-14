@@ -25,7 +25,7 @@ import com.example.demo.service.CandidatService;
 import com.example.demo.serviceImpl.CandidatServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/can")
 @EnableAutoConfiguration
 public class CandidatController {
 	
