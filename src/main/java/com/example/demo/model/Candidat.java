@@ -12,7 +12,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import com.example.demo.status.StatusCandidat;
+import com.example.demo.status.StatusClient;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "candidat")
 public class Candidat {
@@ -38,77 +45,6 @@ public class Candidat {
     
     private Date inscription;
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String nom) {
-		this.name = nom;
-	}
-
-	public String getSurename() {
-		return surename;
-	}
-
-	public void setSurename(String surename) {
-		this.surename = surename;
-	}
-
-	public String getSexe() {
-		return sexe;
-	}
-
-	public void setSexe(String sexe) {
-		this.sexe = sexe;
-	}
-
-	public StatusCandidat getStatu() {
-		return status;
-	}
-
-	public void setStatu(StatusCandidat statu) {
-		this.status = statu;
-	}
-
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public Date getInscription() {
-		return inscription;
-	}
-
-	public void setInscription(Date inscription) {
-		
-		
-		this.inscription = inscription;
-	}
-
-	public Candidat(Long id, @NotBlank String nom, @NotBlank String surename, @NotBlank String sexe,
-			StatusCandidat statu, @NotBlank String mail, Date inscription) {
-		super();
-		this.id = id;
-		this.name = nom;
-		this.surename= surename;
-		this.sexe = sexe;
-		this.status = statu;
-		this.mail = mail;
-		this.inscription = inscription;
-	}
-	public Candidat() {
-	
-	}
 	
 }
