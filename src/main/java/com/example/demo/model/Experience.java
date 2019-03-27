@@ -2,55 +2,57 @@ package com.example.demo.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
-
-import com.example.demo.status.StatusCandidat;
-import com.example.demo.status.StatusClient;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "candidat")
-public class Candidat {
-
-	@Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
-    public Long id;
+@Table(name = "experience")
+public class Experience {
 	
 	@Autowired
 	private Picture picture;
 	
-	@NotBlank
-	private String name;
+	@Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	
 	
 	@NotBlank
-	private String surename;
+	private String establishmentName;
 	
 	@NotBlank
-	private String sexe;
+	private Date start;
 	
-    @Enumerated(EnumType.STRING)
-	private StatusCandidat status;
-    
-    @NotBlank
-    private String mail;
-    
+	
+	private Date end;
+	
     @CreatedDate
     Date createdAt;
-
-	
+     
+    @LastModifiedDate
+    Date modifiedAt;
+    
+    @ManyToOne(cascade= {CascadeType.ALL})
+	@JoinColumn(name="cv_id")
+	private Cv cv;
 }
