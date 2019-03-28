@@ -55,6 +55,9 @@ public class Client {
 	private String mail;
 	
 	@NotBlank
+	private String password;
+	
+	@NotBlank
 	private Integer role;
 
 	@OneToMany(mappedBy="client")

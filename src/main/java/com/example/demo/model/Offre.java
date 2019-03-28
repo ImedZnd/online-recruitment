@@ -75,6 +75,16 @@ public class Offre {
      
     @LastModifiedDate
     Date modifiedAt;
- 
-	
+    
+    @ManyToOne
+	@JoinColumn(name="idRapport")
+	private Rapport rapport;
+    
+    @ManyToOne
+	@JoinColumn(name="idFavorite")
+	private Favorite favorite;
+    
+    @ManyToOne
+	@JoinColumn(name="idPostulation")
+	private Postulation postulation;
 }

@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -43,6 +46,9 @@ public class Candidat {
 	
 	@NotBlank
 	private String surename;
+
+	@NotBlank
+	private String password;
 	
 	@NotBlank
 	private String sexe;
@@ -56,5 +62,22 @@ public class Candidat {
     @CreatedDate
     Date createdAt;
 
+    @OneToOne(cascade =  CascadeType.ALL)
+	@JoinColumn(name="idCv") 
+    Cv cv;
 	
+	@OneToMany(mappedBy="candidat")
+	private Collection<Entretient> entretients;
+	
+	@ManyToOne
+	@JoinColumn(name="idRapport")
+	private Rapport rapport;
+	
+	@ManyToOne
+	@JoinColumn(name="idFavorite")
+	private Favorite favorite;
+	
+	@ManyToOne
+	@JoinColumn(name="idPostulation")
+	private Postulation postulation;
 }
