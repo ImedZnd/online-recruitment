@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +29,6 @@ public class Location {
 	
 	private int number;
 	
-	@OneToMany(mappedBy="ocation")
-	private List<Offre> offres;
+	@OneToMany(mappedBy="location")
+	private Set<Offre> offres;
 }

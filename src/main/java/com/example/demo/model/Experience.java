@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -28,14 +29,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "experience")
 public class Experience {
 	
-	@Autowired
-	private Picture picture;
-	
 	@Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	
+	@OneToOne(cascade =  CascadeType.ALL)
+	@JoinColumn(name="idPicture")          
+	private Picture picture;
 	
 	@NotBlank
 	private String establishmentName;

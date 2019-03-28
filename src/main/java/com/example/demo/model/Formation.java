@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -35,7 +36,8 @@ public class Formation {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Autowired
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idPicture")
 	private Picture picture;
 	
 	@NotBlank
@@ -50,7 +52,7 @@ public class Formation {
     @LastModifiedDate
     Date modifiedAt;
     
-    @ManyToOne(cascade= {CascadeType.ALL})
-	@JoinColumn(name="cv_id")
+    @ManyToOne(cascade= {CascadeType.ALL}									)
+	@JoinColumn(name="idCv")
 	private Cv cv;
 }

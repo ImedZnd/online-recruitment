@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -82,18 +83,18 @@ public class Cv {
     
     @Autowired
     @OneToMany(mappedBy="cv")
-    private Optional<Formation> formation;
+    private Set<Formation> formation;
     
     @Autowired
     @OneToMany(mappedBy="cv")
-    private Optional<Competence> competence;
+    private Set<Competence> competence;
     
     @Autowired
     @OneToMany(mappedBy="cv")
-    private Optional<Experience> experience;
+    private Set<Experience> experience;
     
     @Autowired
     @OneToMany(mappedBy="cv")
-    private Optional<Language> language;
+    private Set<Language> language;
 
 }
