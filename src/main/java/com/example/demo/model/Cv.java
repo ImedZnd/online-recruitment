@@ -62,7 +62,7 @@ public class Cv {
 	
 	private Long firstTel;
 	
-	private Long  SecondTel;
+	private Long  secondTel;
 	
 	private String firstMail;
 	

@@ -38,7 +38,7 @@ public class Rapport {
 	
 	@Autowired
 	@OneToMany(mappedBy="rapport")
-	private Set<Candidat> candidant;
+	private Set<Candidat> candidat;
 	
 	@NotBlank
 	private String raison;

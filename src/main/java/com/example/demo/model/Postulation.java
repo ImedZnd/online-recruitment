@@ -35,7 +35,7 @@ public class Postulation {
 	private Collection<Offre> offres;
 	
 	@OneToMany(mappedBy="postulation")
-	private Collection<Candidat> candidants;
+	private Collection<Candidat> candidats;
 	
     @CreatedDate
     Date createdAt;

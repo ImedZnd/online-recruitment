@@ -34,6 +34,6 @@ public class Competence {
 	private String monthOfExp;
 	
 	@ManyToOne(cascade= {CascadeType.ALL})
-	@JoinColumn(name="cv_id")
+	@JoinColumn(name="idCv")
 	private Cv cv;
 }

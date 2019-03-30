@@ -53,6 +53,6 @@ public class Experience {
     Date modifiedAt;
     
     @ManyToOne(cascade= {CascadeType.ALL})
-	@JoinColumn(name="cv_id")
+	@JoinColumn(name="idCv")
 	private Cv cv;
 }

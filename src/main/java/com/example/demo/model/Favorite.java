@@ -32,7 +32,7 @@ public class Favorite {
 	private Collection<Offre> offres;
 	
 	@OneToMany(mappedBy="favorite")
-	private Collection<Candidat> candidants;
+	private Collection<Candidat> candidat;
 	
     @CreatedDate
     Date createdAt;
