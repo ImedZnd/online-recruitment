@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Client;
 import com.example.demo.model.Offre;
@@ -12,6 +14,7 @@ import com.example.demo.repository.OffreRepository;
 import com.example.demo.service.OffreService;
 import com.example.demo.status.StatusOffre;
 
+@Service
 public class OffreServiceImpl implements OffreService {
 
 	@Autowired
@@ -20,7 +23,7 @@ public class OffreServiceImpl implements OffreService {
 	@Override
 	public List<Offre> getAll(String title) {
 		// TODO Auto-generated method stub
-		return offreRepository.findAll();
+		return offreRepository.findAll(Sort.by(title));
 	}
 
 	@Override

@@ -33,6 +33,8 @@ public class Language {
 	
 	private String writeLevel;
 	
+	private String establishmentName;
+	
 	private String readLevel;
 	
 	@ManyToOne(cascade= {CascadeType.ALL})

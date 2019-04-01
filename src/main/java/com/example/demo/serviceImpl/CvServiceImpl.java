@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Competence;
 import com.example.demo.model.Cv;
@@ -15,6 +17,7 @@ import com.example.demo.repository.CvRepository;
 import com.example.demo.service.CvService;
 import com.example.demo.status.StatusCv;
 
+@Service
 public class CvServiceImpl implements CvService {
 
 	@Autowired
@@ -23,7 +26,7 @@ public class CvServiceImpl implements CvService {
 	@Override
 	public List<Cv> getAll(String sortby) {
 		// TODO Auto-generated method stub
-		return cvRepository.findAll();
+		return cvRepository.findAll(Sort.by(sortby));
 	}
 
 	@Override

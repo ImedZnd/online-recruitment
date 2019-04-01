@@ -48,6 +48,8 @@ public class Cv {
 
 	private Date naissance;
 	
+	private String monthOfExp;
+	
 	private String etatCivle;
 	
 	private String etatActuel;

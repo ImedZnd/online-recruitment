@@ -4,12 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Competence;
 import com.example.demo.model.Cv;
 import com.example.demo.repository.CompetenceRepository;
 import com.example.demo.service.CompetenceService;
 
+@Service
 public class CompetenceServiceImpl implements CompetenceService {
 
 	@Autowired
@@ -18,7 +21,7 @@ public class CompetenceServiceImpl implements CompetenceService {
 	@Override
 	public List<Competence> getAll(String sortby) {
 		// TODO Auto-generated method stub
-		return competenceRepository.findAll();
+		return competenceRepository.findAll(Sort.by(sortby));
 	}
 
 	@Override

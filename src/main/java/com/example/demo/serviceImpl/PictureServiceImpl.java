@@ -3,9 +3,12 @@ package com.example.demo.serviceImpl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.example.demo.model.Picture;
 import com.example.demo.service.PictureService;
 
+@Service
 public class PictureServiceImpl implements PictureService {
 
 	@Override

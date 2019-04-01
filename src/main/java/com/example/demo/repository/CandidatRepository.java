@@ -16,7 +16,6 @@ public interface CandidatRepository extends JpaRepository<Candidat,Long>{
     List<Candidat> findCandidatBySexe(String sexe);
     List<Candidat> findCandidatByStatus(Enum<?> status);
 	List<Candidat> findAll();
-	
 	List<Candidat> findByNameContaining(String name);
 
 }

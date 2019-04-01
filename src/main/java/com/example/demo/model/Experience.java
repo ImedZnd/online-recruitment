@@ -43,6 +43,7 @@ public class Experience {
 	@NotBlank
 	private Date start;
 	
+	private String type;
 	
 	private Date end;
 	

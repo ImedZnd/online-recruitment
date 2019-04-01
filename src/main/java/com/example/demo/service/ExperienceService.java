@@ -22,7 +22,7 @@ public interface ExperienceService {
    
     List<Experience> getByEstablishmentNameContain(String establishmentName);
 
-    List<Experience> getBystart(Date start);
+    List<Experience> getByStart(Date start);
     
-    List<Experience> getByend(Date end);
+    List<Experience> getByEnd(Date end);
     }

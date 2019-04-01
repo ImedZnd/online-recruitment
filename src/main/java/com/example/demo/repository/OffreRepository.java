@@ -19,7 +19,6 @@ public interface OffreRepository extends JpaRepository<Offre, Long> {
 	Optional<Offre> findByStatusOffre(StatusOffre statusOffre);
 	Optional<Offre> findBySalary(Long salary);
 	Optional<Offre> findByDateLimit(Date dateLimit);
-	//Optional<Offre> findByCreator(Client creator);
 	Optional<Offre> findByCreatedAt(Date createdAt);
 	Optional<Offre> findByExperience(Long experience);
 

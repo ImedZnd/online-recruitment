@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Client;
@@ -20,7 +21,7 @@ public class ClientServiceImp  implements ClientService
 	@Override
 	public List<Client> getAll(String sortby) {
 		// TODO Auto-generated method stub
-		return clientRepository.findAll();
+		return clientRepository.findAll(Sort.by(sortby));
 	}
 
 	@Override

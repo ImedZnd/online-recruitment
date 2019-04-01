@@ -19,7 +19,7 @@ public interface LanguageService {
 
     List<Language> getByCv(Cv cv);
    
-    List<Language> getByEstablishmentNameContain(String establishmentName);
+    List<Language> getByEstablishmentNameContaining(String establishmentName);
 
     List<Language> getBylange(String lange);
         

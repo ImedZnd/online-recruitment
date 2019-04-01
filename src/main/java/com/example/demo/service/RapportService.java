@@ -22,7 +22,7 @@ public interface RapportService {
    
     List<Rapport> getByCandidat(Candidat candidat);
     
-    List<Rapport> getByRaisonContain(String raison);
+    List<Rapport> getByRaisonContaining(String raison);
     
     List<Rapport> getByCreatedAt(Date createdAt);
     
