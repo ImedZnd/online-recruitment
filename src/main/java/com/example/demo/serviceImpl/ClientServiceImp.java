@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Client;
@@ -17,6 +18,8 @@ public class ClientServiceImp  implements ClientService
 
 	@Autowired
 	ClientRepository clientRepository;
+	@Autowired
+    private PasswordEncoder passwordEncoder;
 	
 	@Override
 	public List<Client> getAll(String sortby) {
@@ -39,6 +42,7 @@ public class ClientServiceImp  implements ClientService
 	@Override
 	public Client addOne(Client client) {
 		// TODO Auto-generated method stub
+		client.setPassword(passwordEncoder.encode(client.getPassword()));
 		return clientRepository.save(client);
 	}
 

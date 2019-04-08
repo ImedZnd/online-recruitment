@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "candidat")
-public class Candidat {
+public class Candidat extends User {
 
 	@Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -80,4 +80,6 @@ public class Candidat {
 	@ManyToOne
 	@JoinColumn(name="idPostulation")
 	private Postulation postulation;
+	
+	
 }

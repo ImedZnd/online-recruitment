@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Responsable;
@@ -15,7 +16,8 @@ public class ResponsableServiceImp implements ResponsableService {
 
 	@Autowired
 	ResponsableRepository responsableRepository;
-	
+	@Autowired
+    private PasswordEncoder passwordEncoder;
 	@Override
 	public List<Responsable> getAll(String sortby) {
 		// TODO Auto-generated method stub
@@ -37,6 +39,7 @@ public class ResponsableServiceImp implements ResponsableService {
 	@Override
 	public Responsable addOne(Responsable responsable) {
 		// TODO Auto-generated method stub
+		responsable.setPassword(passwordEncoder.encode(responsable.getPassword()));
 		return responsableRepository.save(responsable);
 	}
 

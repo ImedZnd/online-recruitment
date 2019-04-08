@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import com.example.demo.status.ResponsableRole;
+import com.example.demo.status.RoleName;
 import com.example.demo.status.StatusCandidat;
 import com.example.demo.status.StatusResponsable;
 
@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "responsable")
-public class Responsable {
+public class Responsable extends User{
 
 	@Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -38,7 +38,7 @@ public class Responsable {
 	private String name;
 	
     @Enumerated(EnumType.STRING)
-	private ResponsableRole role;
+	private RoleName role;
     
     @Enumerated(EnumType.STRING)
 	private StatusResponsable status;

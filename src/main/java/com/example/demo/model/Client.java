@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "client")
-public class Client {
+public class Client extends User {
 
 	@Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)

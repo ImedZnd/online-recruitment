@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Candidat;
@@ -16,6 +18,8 @@ public class CandidatServiceImpl implements CandidatService {
 
 	@Autowired
 	CandidatRepository candidatRepository;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Override
 	public List<Candidat> getAll(String sortby) {
@@ -36,9 +40,10 @@ public class CandidatServiceImpl implements CandidatService {
 	}
 
 	@Override
-	public Candidat addOne(Candidat Candidat) {
+	public Candidat addOne(Candidat candidat) {
 		// TODO Auto-generated method stub
-		return candidatRepository.save(Candidat);
+		candidat.setPassword(passwordEncoder.encode(candidat.getPassword()));
+		return candidatRepository.save(candidat);
 	}
 
 	@Override

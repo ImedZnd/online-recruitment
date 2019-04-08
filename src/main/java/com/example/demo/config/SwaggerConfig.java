@@ -14,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Profile("dev")
 @EnableSwagger2
 @EnableWebMvc
+@Configuration
 public class SwaggerConfig {
 	@Bean
     public Docket api() { 
