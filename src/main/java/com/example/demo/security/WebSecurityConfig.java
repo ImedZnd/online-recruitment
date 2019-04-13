@@ -19,7 +19,10 @@ import com.example.demo.security.jwt.JwtAuthTokenFilter;
 import com.example.demo.security.services.UserDetailsServiceImpl;
 
 
+@EnableWebSecurity
+@Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     UserDetailsServiceImpl userDetailsService;
  
@@ -37,9 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
- 
+
     @Bean
-    @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
