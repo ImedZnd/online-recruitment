@@ -66,4 +66,14 @@ public class ExperienceServiceImpl implements ExperienceService {
 		return experienceRepository.findByEnd(end);
 	}
 
+	//@Override
+	//public List<Cv> getByestablishmentNameAndPeriode(String esname, Date start, Date end) {
+	//	// TODO Auto-generated method stub
+	//	return  experienceRepository.findByestablishmentNameAndPeriode(esname, start, end);
+	//}
+
+
+
+
+
 }

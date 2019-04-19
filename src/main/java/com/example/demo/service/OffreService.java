@@ -20,6 +20,12 @@ public interface OffreService {
 
     Optional<Offre> getByTitle(String title);
     
+    Optional<Offre> getByTitleContaining(String title);
+    
+    Optional<Offre> getByDescriptionContaining(String discrip);
+    
+    Optional<Offre> getByDetailsContaining(String detail);
+    
     Optional<Offre> getByPlace(String place);
             
     Optional<Offre> getByType(String type);

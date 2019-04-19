@@ -29,7 +29,7 @@ public class OffreServiceImpl implements OffreService {
 	@Override
 	public Optional<Offre> getById(Long id) {
 		// TODO Auto-generated method stub
-		return offreRepository.findById(id);
+		return offreRepository.findById((long) id);
 	}
 
 	@Override
@@ -95,6 +95,24 @@ public class OffreServiceImpl implements OffreService {
 	public Optional<Offre> getByExperience(Long experience) {
 		// TODO Auto-generated method stub
 		return offreRepository.findByExperience(experience);
+	}
+
+	@Override
+	public Optional<Offre> getByTitleContaining(String title) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByTitleContaining(title);
+	}
+
+	@Override
+	public Optional<Offre> getByDescriptionContaining(String discrip) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByDescriptionContaining(discrip);
+	}
+
+	@Override
+	public Optional<Offre> getByDetailsContaining(String detail) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByDetailsContaining(detail);
 	}
 
 }

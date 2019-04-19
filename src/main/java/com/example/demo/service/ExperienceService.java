@@ -25,4 +25,6 @@ public interface ExperienceService {
     List<Experience> getByStart(Date start);
     
     List<Experience> getByEnd(Date end);
+
+    //List<Cv> getByestablishmentNameAndPeriode(String esname, Date start, Date end);
     }

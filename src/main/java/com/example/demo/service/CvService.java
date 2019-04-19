@@ -15,7 +15,7 @@ public interface CvService {
 	
 	List<Cv> getAll(String sortby);
 
-    Optional<Cv> getById(Long id);
+    Optional<Cv> getById(int id);
 
     void deleteById(Long id);
 

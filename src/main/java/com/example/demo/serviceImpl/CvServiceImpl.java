@@ -30,7 +30,7 @@ public class CvServiceImpl implements CvService {
 	}
 
 	@Override
-	public Optional<Cv> getById(Long id) {
+	public Optional<Cv> getById(int id) {
 		// TODO Auto-generated method stub
 		return cvRepository.findById(id);
 	}

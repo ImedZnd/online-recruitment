@@ -2,8 +2,10 @@ package com.example.demo.repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Competence;
 import com.example.demo.model.Cv;
@@ -12,7 +14,9 @@ import com.example.demo.model.Formation;
 import com.example.demo.model.Language;
 import com.example.demo.status.StatusCv;
 
+@Repository
 public interface CvRepository extends JpaRepository<Cv, Long> {
+	Optional<Cv> findById(int id);
 	List<Cv> findCvByName(String name);
 	List<Cv> findCvByStatus(StatusCv status);
 	List<Cv> findCvBySurename(String surename);

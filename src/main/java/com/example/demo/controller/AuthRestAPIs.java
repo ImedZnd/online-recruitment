@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.message.JwtResponse;
@@ -49,7 +51,7 @@ public class AuthRestAPIs {
     @Autowired
     JwtProvider jwtProvider;
  
-    @PostMapping("/signin")
+    @PostMapping("/signin" )
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
  
         Authentication authentication = authenticationManager.authenticate(
@@ -65,8 +67,8 @@ public class AuthRestAPIs {
         return ResponseEntity.ok(new JwtResponse(jwt));
     }
  
-    @PostMapping("/signup")
-    public ResponseEntity<String> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
+    @PostMapping(path = "/signup", consumes = "application/x-www-form-urlencoded")
+    public  ResponseEntity<String> registerUser(@Valid   SignUpForm signUpRequest) {
         if(userRepository.existsByUsername(signUpRequest.getUsername())) {
             return new ResponseEntity<String>("Fail -> Username is already taken!",
                     HttpStatus.BAD_REQUEST);
