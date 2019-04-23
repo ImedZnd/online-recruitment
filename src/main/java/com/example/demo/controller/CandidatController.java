@@ -34,7 +34,7 @@ public class CandidatController {
 	CandidatService candidatService;
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/candidat/id/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Optional<Candidat>> getCandidatbyId( @PathVariable(value = "id") Long id) {
 
         System.out.println("get candidat with id\n");
@@ -45,7 +45,7 @@ public class CandidatController {
     }
     
 	@CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/candidats/{sortby}")
+    @GetMapping("/sor/{sortby}")
     public ResponseEntity<List> getAllCandidatSorted(@PathVariable String sortby){
         System.out.println("get all candidats \n");
 
@@ -68,7 +68,7 @@ public class CandidatController {
 	
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping(value = {"/candidats/name/{name}"})
+    @GetMapping(value = {"/name/{name}"})
     public ResponseEntity<List> getCandidatsByName( @PathVariable(value = "name") String name) {
 
         System.out.println("get candidats with name\n");
@@ -79,7 +79,7 @@ public class CandidatController {
     }
     
     @CrossOrigin(origins = "*")
-    @PostMapping("/candidat/add")
+    @PostMapping("/add")
     public ResponseEntity<Candidat> addCandidat(@Valid @RequestBody Candidat candidat) {
 
             System.out.println("add a candidat \n");
@@ -87,7 +87,7 @@ public class CandidatController {
     }
 
     @CrossOrigin(origins = "*")
-    @DeleteMapping("/candidats/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteCandidat(@PathVariable ("id") Long id) {
 
             System.out.println("delete a candidat \n");
@@ -95,7 +95,7 @@ public class CandidatController {
             return new ResponseEntity<>(HttpStatus.OK);
     }
     @CrossOrigin(origins = "*")
-    @PutMapping("/candidats/update")
+    @PutMapping("/update")
     public ResponseEntity<Candidat> updateCandidat( @RequestBody Candidat newCandidat)  {
             System.out.println("update candidat \n");
             Optional<Candidat> oldCandidat = getCandidatbyId(newCandidat.getId()).getBody();

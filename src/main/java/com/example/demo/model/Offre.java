@@ -35,9 +35,6 @@ public class Offre {
 	private String title;
 	
 	@NotBlank
-	private String place;
-	
-	@NotBlank
 	private String type;
 	
 	
@@ -65,7 +62,7 @@ public class Offre {
 	@JoinColumn(name="idCategory")
 	private Category category;
 
-	
+	@NotBlank
 	@ManyToOne
 	@JoinColumn(name="idLocation")
 	private Location location;

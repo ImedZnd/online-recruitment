@@ -21,7 +21,6 @@ public interface OffreRepository extends JpaRepository<Offre, Long> {
 	Optional<Offre> findByDescriptionContaining(String description);
 	Optional<Offre> findByTitleContaining(String title);
 	Optional<Offre> findByTitle(String title);
-	Optional<Offre> findByPlace(String place);
 	Optional<Offre> findByType(String type);
 	Optional<Offre> findByStatusOffre(StatusOffre statusOffre);
 	Optional<Offre> findBySalary(Long salary);

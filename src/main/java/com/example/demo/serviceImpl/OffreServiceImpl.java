@@ -8,8 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Category;
 import com.example.demo.model.Client;
+import com.example.demo.model.Favorite;
+import com.example.demo.model.Location;
 import com.example.demo.model.Offre;
+import com.example.demo.model.Postulation;
+import com.example.demo.model.Rapport;
 import com.example.demo.repository.OffreRepository;
 import com.example.demo.service.OffreService;
 import com.example.demo.status.StatusOffre;
@@ -47,12 +52,6 @@ public class OffreServiceImpl implements OffreService {
 	public Optional<Offre> getByTitle(String title) {
 		// TODO Auto-generated method stub
 		return offreRepository.findByTitle(title);
-	}
-
-	@Override
-	public Optional<Offre> getByPlace(String place) {
-		// TODO Auto-generated method stub
-		return offreRepository.findByPlace(place);
 	}
 
 	@Override
@@ -113,6 +112,42 @@ public class OffreServiceImpl implements OffreService {
 	public Optional<Offre> getByDetailsContaining(String detail) {
 		// TODO Auto-generated method stub
 		return offreRepository.findByDetailsContaining(detail);
+	}
+
+	@Override
+	public Optional<Offre> getByFavorite(Favorite favorite) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByFavorite(favorite);
+	}
+
+	@Override
+	public Optional<Offre> getByRapport(Rapport rapport) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByRapport(rapport);
+	}
+
+	@Override
+	public Optional<Offre> getByPostulation(Postulation postulation) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByPostulation(postulation);
+	}
+
+	@Override
+	public Optional<Offre> getByClient(Client client) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByClient(client);
+	}
+
+	@Override
+	public Optional<Offre> getByCategory(Category category) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByCategory(category);
+	}
+
+	@Override
+	public Optional<Offre> getByLocation(Location location) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByLocation(location);
 	}
 
 }

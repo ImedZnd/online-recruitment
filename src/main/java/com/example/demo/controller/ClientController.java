@@ -29,7 +29,7 @@ public class ClientController {
 	@Autowired
 	ClientService clientService;
 
-    @GetMapping("/client/id/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Optional<Client>> getClientbyId( @PathVariable(value = "id") Long id) {
 
         System.out.println("get client with id\n");
@@ -38,7 +38,7 @@ public class ClientController {
             		HttpStatus.OK
             		);
     }
-    @GetMapping("/clients/{sortby}")
+    @GetMapping("/srt/{sortby}")
     public ResponseEntity<List> getAllClientsSorted(@PathVariable String sortby){
         System.out.println("get all clients \n");
 
@@ -61,7 +61,7 @@ public class ClientController {
         }
         return new ResponseEntity<>(clientService.getAll(sortby), HttpStatus.OK);
     }
-    @GetMapping(value = {"/clients/name/{name}"})
+    @GetMapping(value = {"/name/{name}"})
     public ResponseEntity<Optional<Client>> getClientsByName( @PathVariable(value = "name") String name) {
 
         System.out.println("get clients with name\n");
@@ -70,20 +70,20 @@ public class ClientController {
                     HttpStatus.OK
             );
     }
-    @PostMapping("/client/add")
+    @PostMapping("/add")
     public ResponseEntity<Client> addClient(@Valid @RequestBody Client client) {
 
             System.out.println("add a client \n");
             return new ResponseEntity<>(clientService.addOne(client),HttpStatus.OK);
     }
-    @DeleteMapping("/clients/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteClient(@PathVariable ("id") Long id) {
 
             System.out.println("delete a client \n");
             clientService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PutMapping("/clients/update")
+    @PutMapping("/update")
     public ResponseEntity<Client> updateCandidat( @RequestBody Client newClient)  {
             System.out.println("update client \n");
             Optional<Client> oldClient = getClientbyId(newClient.getId()).getBody();

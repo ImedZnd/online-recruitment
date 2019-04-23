@@ -66,4 +66,16 @@ public class CompetenceServiceImpl implements CompetenceService {
 		return competenceRepository.findCompetenceByCv(cv);
 	}
 
+	@Override
+	public boolean getByCvIfExist(Long id) {
+		// TODO Auto-generated method stub
+		return competenceRepository.existsById(id);
+	}
+
+	@Override
+	public List<Competence> getAll() {
+		// TODO Auto-generated method stub
+		return competenceRepository.findAll();
+	}
+
 }

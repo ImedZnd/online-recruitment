@@ -19,13 +19,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.Category;
+import com.example.demo.model.Client;
 import com.example.demo.model.Cv;
+import com.example.demo.model.Favorite;
+import com.example.demo.model.Location;
 import com.example.demo.model.Offre;
+import com.example.demo.model.Postulation;
+import com.example.demo.model.Rapport;
 import com.example.demo.repository.PostulationRepository;
 import com.example.demo.service.FavoriteService;
 import com.example.demo.service.OffreService;
 import com.example.demo.service.PostulationService;
 import com.example.demo.service.RapportService;
+import com.example.demo.status.StatusOffre;
 
 @RestController
 @RequestMapping("/ofr")
@@ -101,6 +108,79 @@ public class OffreController {
         System.out.println("get Offre with detail\n");
             return new ResponseEntity<>(
             		offreService.getByDetailsContaining(detail),
+                    HttpStatus.OK
+            );
+    }
+    @GetMapping(value = {"/favorit/{favorit}"})
+    public ResponseEntity<Optional<Offre>> getByFavorit( @PathVariable(value = "favorit") Favorite favorit) {
+
+        System.out.println("get Offre with detail\n");
+            return new ResponseEntity<>(
+            		offreService.getByFavorite(favorit),
+                    HttpStatus.OK
+            );
+    }
+    @GetMapping(value = {"/rapport/{rapport}"})
+    public ResponseEntity<Optional<Offre>> getByRapport( @PathVariable(value = "rapport") Rapport rapport) {
+
+        System.out.println("get Offre with rapport\n");
+            return new ResponseEntity<>(
+            		offreService.getByRapport(rapport),
+                    HttpStatus.OK
+            );
+    }
+    @GetMapping(value = {"/postulation/{postulation}"})
+    public ResponseEntity<Optional<Offre>> getByPostulation( @PathVariable(value = "postulation") Postulation postulation) {
+
+        System.out.println("get Offre with postulation\n");
+            return new ResponseEntity<>(
+            		offreService.getByPostulation(postulation),
+                    HttpStatus.OK
+            );
+    }
+
+    @GetMapping(value = {"/type/{type}"})
+    public ResponseEntity<Optional<Offre>> getByType( @PathVariable(value = "type") String type) {
+
+        System.out.println("get Offre with type\n");
+            return new ResponseEntity<>(
+            		offreService.getByType(type),
+                    HttpStatus.OK
+            );
+    }
+    @GetMapping(value = {"/statusOffre/{statusOffre}"})
+    public ResponseEntity<Optional<Offre>> getByStatusOffre( @PathVariable(value = "statusOffre") StatusOffre statusOffre) {
+
+        System.out.println("get Offre with statusOffre\n");
+            return new ResponseEntity<>(
+            		offreService.getByStatusOffre(statusOffre),
+                    HttpStatus.OK
+            );
+    }
+    @GetMapping(value = {"/client/{client}"})
+    public ResponseEntity<Optional<Offre>> getByClient( @PathVariable(value = "client") Client client) {
+
+        System.out.println("get Offre with client\n");
+            return new ResponseEntity<>(
+            		offreService.getByClient(client),
+                    HttpStatus.OK
+            );
+    }
+    @GetMapping(value = {"/category/{category}"})
+    public ResponseEntity<Optional<Offre>> getByCategory( @PathVariable(value = "category") Category category) {
+
+        System.out.println("get Offre with category\n");
+            return new ResponseEntity<>(
+            		offreService.getByCategory(category),
+                    HttpStatus.OK
+            );
+    }
+    @GetMapping(value = {"/location/{location}"})
+    public ResponseEntity<Optional<Offre>> getByLocation( @PathVariable(value = "location") Location location) {
+
+        System.out.println("get Offre with location\n");
+            return new ResponseEntity<>(
+            		offreService.getByLocation(location),
                     HttpStatus.OK
             );
     }

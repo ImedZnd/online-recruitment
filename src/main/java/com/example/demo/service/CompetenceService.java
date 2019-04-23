@@ -10,7 +10,7 @@ public interface CompetenceService {
 	
 	List<Competence> getAll(String sortby);
 
-    Optional<Competence> getById(Long id);
+	Optional<Competence> getById(Long id);
 
     void deleteById(Long id);
 
@@ -23,5 +23,9 @@ public interface CompetenceService {
     List<Competence> getByMonthOfExp(String monthOfExp);
     
     List<Competence> getByCv(Cv cv);
+
+	boolean getByCvIfExist(Long id);
+
+	List<Competence> getAll();
     
 }
