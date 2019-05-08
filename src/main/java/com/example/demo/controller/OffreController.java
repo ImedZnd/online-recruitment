@@ -35,7 +35,7 @@ import com.example.demo.service.RapportService;
 import com.example.demo.status.StatusOffre;
 
 @RestController
-@RequestMapping("/ofr")
+@RequestMapping("/off")
 @EnableAutoConfiguration
 public class OffreController {
 	@Autowired
@@ -50,15 +50,16 @@ public class OffreController {
 	@Autowired
 	PostulationService postulationService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "*")
     @PostMapping("/add")
 	  public ResponseEntity<Offre> addOffre(@Valid @RequestBody Offre offre) {
 
         System.out.println("add an offre \n");
         return new ResponseEntity<>(offreService.addOne(offre),HttpStatus.OK);
 		}
-    @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping(value = {"/id/{id}"})
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping(value = {"/id/{id}"})
     public ResponseEntity<Optional<Offre>> getById( @PathVariable(value = "id") Long id) {
 
         System.out.println("get an offre with id\n");
@@ -67,6 +68,17 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
+	@CrossOrigin(origins = "*")
+	@GetMapping(value = {"/"})
+    public ResponseEntity<List<Offre>> getAll( ) {
+
+        System.out.println("get an offre with id\n");
+            return new ResponseEntity<>(
+            		offreService.getAllOffres(),
+                    HttpStatus.OK
+            );
+    }
+	@CrossOrigin(origins = "*")
     @PutMapping("/offre/update/{id}")
     public ResponseEntity<Offre> updateOffre( @RequestBody Offre newOffre)  {
             System.out.println("update offre \n");
@@ -77,6 +89,7 @@ public class OffreController {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
     }
+	@CrossOrigin(origins = "*")
     @DeleteMapping("/cv/delete/{id}")
     public ResponseEntity deleteOffre(@PathVariable ("id") Long id) {
 
@@ -84,6 +97,7 @@ public class OffreController {
             offreService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
     }
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/title/{title}"})
     public ResponseEntity<Optional<Offre>> getByTitleContaining( @PathVariable(value = "title") String title) {
 
@@ -93,6 +107,7 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/discrip/{discrip}"})
     public ResponseEntity<Optional<Offre>> getByDescriptionContaining( @PathVariable(value = "discrip") String discrip) {
 
@@ -102,6 +117,7 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/detail/{detail}"})
     public ResponseEntity<Optional<Offre>> getByDetailsContaining( @PathVariable(value = "detail") String detail) {
 
@@ -111,6 +127,7 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/favorit/{favorit}"})
     public ResponseEntity<Optional<Offre>> getByFavorit( @PathVariable(value = "favorit") Favorite favorit) {
 

@@ -20,9 +20,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Entity
 @Table(name = "postulation")
 public class Postulation {
@@ -42,4 +42,58 @@ public class Postulation {
      
     @LastModifiedDate
     Date modifiedAt;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Collection<Offre> getOffres() {
+		return offres;
+	}
+
+	public void setOffres(Collection<Offre> offres) {
+		this.offres = offres;
+	}
+
+	public Collection<Candidat> getCandidats() {
+		return candidats;
+	}
+
+	public void setCandidats(Collection<Candidat> candidats) {
+		this.candidats = candidats;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getModifiedAt() {
+		return modifiedAt;
+	}
+
+	public void setModifiedAt(Date modifiedAt) {
+		this.modifiedAt = modifiedAt;
+	}
+
+	public Postulation(Long id,  Date createdAt,
+			Date modifiedAt) {
+		super();
+		this.id = id;
+		this.createdAt = createdAt;
+		this.modifiedAt = modifiedAt;
+	}
+
+	public Postulation() {
+		super();
+	}
+    
+    
 }

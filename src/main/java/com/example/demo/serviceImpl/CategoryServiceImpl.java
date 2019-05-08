@@ -19,9 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
 	CategoryRepository categoryRepository;
 	
 	@Override
-	public List<Category> getAll(String sortby) {
+	public List<Category> getAll() {
 		// TODO Auto-generated method stub
-		return categoryRepository.findAll(Sort.by(sortby));
+		return categoryRepository.findAll();
 	}
 
 	@Override

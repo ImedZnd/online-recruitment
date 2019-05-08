@@ -17,6 +17,8 @@ public interface OffreService {
 
 	List<Offre> getAll(String title);
 
+	List<Offre> getAllOffres();
+	
     Optional<Offre> getById(Long id);
 
     void deleteById(Long id);

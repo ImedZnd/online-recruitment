@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -30,6 +31,15 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
 	 
+	@CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/")
+    public ResponseEntity<List<Category>> getAllCategory( ) {
+		 System.out.println("get Categorys\n");   
+		return new ResponseEntity<>(
+            		categoryService.getAll(),
+            		HttpStatus.OK
+            		);
+    }
 	
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/id/{id}")

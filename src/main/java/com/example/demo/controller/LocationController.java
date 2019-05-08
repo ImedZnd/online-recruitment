@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -29,6 +30,17 @@ public class LocationController {
 	
 	@Autowired
 	LocationService locationService;
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/")
+    public ResponseEntity<List<Location>> getAllLocations( ) {
+
+        System.out.println("get Locations\n");
+            return new ResponseEntity<>(
+            		locationService.getAll(),
+            		HttpStatus.OK
+            		);
+    }
 	
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/id/{id}")

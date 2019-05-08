@@ -18,9 +18,9 @@ public class LocationServiceImpl implements LocationService {
 	@Autowired
 	LocationRepository  locationRepository;
 	@Override
-	public List<Location> getAll(String sortby) {
+	public List<Location> getAll() {
 		// TODO Auto-generated method stub
-		return locationRepository.findAll(Sort.by(sortby));
+		return locationRepository.findAll();
 	}
 
 	@Override

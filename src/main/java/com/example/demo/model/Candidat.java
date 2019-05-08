@@ -26,9 +26,9 @@ import com.example.demo.status.StatusClient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Entity
 @Table(name = "candidat")
 public class Candidat extends User {
@@ -80,6 +80,138 @@ public class Candidat extends User {
 	@ManyToOne
 	@JoinColumn(name="idPostulation")
 	private Postulation postulation;
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Picture getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Picture picture) {
+		this.picture = picture;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurename() {
+		return surename;
+	}
+
+	public void setSurename(String surename) {
+		this.surename = surename;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+	public StatusCandidat getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusCandidat status) {
+		this.status = status;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Cv getCv() {
+		return cv;
+	}
+
+	public void setCv(Cv cv) {
+		this.cv = cv;
+	}
+
+	public Collection<Entretient> getEntretients() {
+		return entretients;
+	}
+
+	public void setEntretients(Collection<Entretient> entretients) {
+		this.entretients = entretients;
+	}
+
+	public Rapport getRapport() {
+		return rapport;
+	}
+
+	public void setRapport(Rapport rapport) {
+		this.rapport = rapport;
+	}
+
+	public Favorite getFavorite() {
+		return favorite;
+	}
+
+	public void setFavorite(Favorite favorite) {
+		this.favorite = favorite;
+	}
+
+	public Postulation getPostulation() {
+		return postulation;
+	}
+
+	public void setPostulation(Postulation postulation) {
+		this.postulation = postulation;
+	}
+
+	public Candidat() {
+		super();
+	}
+
+	public Candidat(Long id, @NotBlank String name, @NotBlank String surename,
+			@NotBlank String password, @NotBlank String sexe, StatusCandidat status, @NotBlank String mail,
+			Date createdAt) {
+		super();
+		this.id = id;
+		
+		this.name = name;
+		this.surename = surename;
+		this.password = password;
+		this.sexe = sexe;
+		this.status = status;
+		this.mail = mail;
+		this.createdAt = createdAt;
+	}
+
+
 	
 }

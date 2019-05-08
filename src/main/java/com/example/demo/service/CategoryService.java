@@ -8,7 +8,7 @@ import com.example.demo.model.Offre;
 
 public interface CategoryService {
 
-	List<Category> getAll(String sortby);
+	List<Category> getAll();
 
     Optional<Category> getById(Long id);
 

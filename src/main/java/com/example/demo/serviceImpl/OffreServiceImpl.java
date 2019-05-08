@@ -150,4 +150,10 @@ public class OffreServiceImpl implements OffreService {
 		return offreRepository.findByLocation(location);
 	}
 
+	@Override
+	public List<Offre> getAllOffres() {
+		// TODO Auto-generated method stub
+		return offreRepository.findAll();
+	}
+
 }

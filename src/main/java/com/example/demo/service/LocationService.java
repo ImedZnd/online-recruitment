@@ -11,7 +11,7 @@ import com.example.demo.model.Offre;
 
 public interface LocationService {
 
-	List<Location> getAll(String sortby);
+	List<Location> getAll();
 
     Optional<Location> getById(Long id);
 
