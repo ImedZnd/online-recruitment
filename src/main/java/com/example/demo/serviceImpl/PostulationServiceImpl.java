@@ -63,4 +63,16 @@ public class PostulationServiceImpl implements PostulationService {
 		return postulationRepository.findByModifiedAt(modifiedAt);
 	}
 
+	@Override
+	public List<Postulation> getByCandidatsId(Long canId) {
+		// TODO Auto-generated method stub
+		return postulationRepository.findByCandidatsId(canId);
+	}
+
+	@Override
+	public List<Postulation> getByOffresId(Long offId) {
+		// TODO Auto-generated method stub
+		return postulationRepository.findByOffresId(offId);
+	}
+
 }

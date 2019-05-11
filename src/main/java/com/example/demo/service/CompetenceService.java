@@ -27,5 +27,7 @@ public interface CompetenceService {
 	boolean getByCvIfExist(Long id);
 
 	List<Competence> getAll();
+
+	List<Competence> getByCvId(Long cvId);
     
 }

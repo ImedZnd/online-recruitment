@@ -31,5 +31,5 @@ public class Picture {
 	    private String fileType;
 
 	    @Lob
-	    private byte[] data;
+	    private String[] data;
 }

@@ -38,9 +38,9 @@ public class FavoriteController {
     public ResponseEntity <Optional<Favorite>> getById(@PathVariable("id") Long id) {
     return new ResponseEntity<>(favoriteService.getById(id), HttpStatus.OK);
     }
- @GetMapping("can/{can}")
-    public ResponseEntity <List<Favorite>> getByCandidat(@PathVariable("can") Candidat can) {
-    return new ResponseEntity<>(favoriteService.getByCandidat(can), HttpStatus.OK);
+ @GetMapping("can/{canId}")
+    public ResponseEntity <List<Favorite>> getByCandidat(@PathVariable("canId") Long canId) {
+    return new ResponseEntity<>(favoriteService.getByCandidatId(canId), HttpStatus.OK);
     }
  
  @PostMapping("/add")

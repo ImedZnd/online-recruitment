@@ -16,4 +16,5 @@ public interface LanguageRepository extends JpaRepository<Language, Long> {
 	List<Language> findBySpeekLevel(String speekLevel);
 	List<Language> findByWriteLevel(String writeLevel);
 	List<Language> findByReadLevel(String readLevel);
+	List<Language> findByCvId(Long cvId);
 }

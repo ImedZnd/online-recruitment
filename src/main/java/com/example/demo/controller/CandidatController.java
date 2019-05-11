@@ -22,7 +22,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Candidat;
+import com.example.demo.model.Cv;
+import com.example.demo.model.Rapport;
 import com.example.demo.service.CandidatService;
+import com.example.demo.service.CvService;
+import com.example.demo.service.PostulationService;
+import com.example.demo.service.RapportService;
 import com.example.demo.serviceImpl.CandidatServiceImpl;
 
 @RestController
@@ -32,18 +37,35 @@ public class CandidatController {
 	
 	@Autowired
 	CandidatService candidatService;
+	@Autowired
+	RapportService rapportService;
+	@Autowired
+	CvService cvService;
 	
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/id/{id}")
-    public ResponseEntity<Optional<Candidat>> getCandidatbyId( @PathVariable(value = "id") Long id) {
-
-        System.out.println("get candidat with id\n");
-            return new ResponseEntity<>(
-            		candidatService.getById(id),
-            		HttpStatus.OK
-            		);
+    public ResponseEntity <Optional<Candidat>> getCandidatbyId( @PathVariable(value = "id") Long id) {
+    return new ResponseEntity<>(candidatService.getById(id),HttpStatus.OK);
     }
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/")
+    public ResponseEntity <List<Candidat>> getAllCandidat( ) {
+    return new ResponseEntity<>(candidatService.getAllCandidat(),HttpStatus.OK);
+    }
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/cv/{canId}")
+    public ResponseEntity <Cv> getCv( @PathVariable(value = "canId") Long canId) {
+    return new ResponseEntity<>(cvService.getByCandidatId(canId),HttpStatus.OK);
+    }
+	@CrossOrigin(origins = "http://localhost:4200")
+	 @GetMapping("/rap/{canId}")
+	    public ResponseEntity <List<Rapport>> getByCanId(@PathVariable("can") Long canId) {
+		 return new ResponseEntity<>(rapportService.getByCandidatId(canId), HttpStatus.OK);
+	    }
     
+	
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/sor/{sortby}")
     public ResponseEntity<List> getAllCandidatSorted(@PathVariable String sortby){

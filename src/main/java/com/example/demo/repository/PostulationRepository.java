@@ -15,4 +15,6 @@ public interface PostulationRepository extends JpaRepository<Postulation, Long> 
 	List<Postulation> findByOffres(Offre offres);
 	List<Postulation> findByModifiedAt(Date modifiedAt);
 	List<Postulation> findByCandidats(Candidat candidats);
+	List<Postulation> findByCandidatsId(Long canId);
+	List<Postulation> findByOffresId(Long offId);
 }

@@ -34,9 +34,9 @@ public class FormationController {
 	    public ResponseEntity <Optional<Formation>> getById(@PathVariable("id") Long id) {
 	    return new ResponseEntity<>(formationService.getById(id), HttpStatus.OK);
 	    }
-	 @GetMapping("cv/{cv}")
-	    public ResponseEntity <List<Formation>> getByCv(@PathVariable("cv") Cv cv) {
-	    return new ResponseEntity<>(formationService.getByCv(cv), HttpStatus.OK);
+	 @GetMapping("cv/{cvId}")
+	    public ResponseEntity <List<Formation>> getByCv(@PathVariable("cvId") Long cvId) {
+	    return new ResponseEntity<>(formationService.getByCvId(cvId), HttpStatus.OK);
 	    }
 	 
 	 @PostMapping("/add")

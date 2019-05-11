@@ -45,12 +45,11 @@ public class RapportServiceImpl implements RapportService {
 	}
 
 	@Override
-	public List<Rapport> getByOffre(Offre offre) {
+	public List<Rapport> getByOffres(Offre offre) {
 		// TODO Auto-generated method stub
-		return rapportRepository.findByOffre(offre);
+		return rapportRepository.findByOffres(offre);
 	}
 
-	@Override
 	public List<Rapport> getByCandidat(Candidat candidat) {
 		// TODO Auto-generated method stub
 		return rapportRepository.findByCandidat(candidat);
@@ -73,5 +72,13 @@ public class RapportServiceImpl implements RapportService {
 		// TODO Auto-generated method stub
 		return rapportRepository.findByModifiedAt(modifiedAt);
 	}
+
+	@Override
+	public List<Rapport> getByCandidatId(Long canId) {
+		// TODO Auto-generated method stub
+		return rapportRepository.findByCandidatId(canId);
+	}
+
+
 
 }

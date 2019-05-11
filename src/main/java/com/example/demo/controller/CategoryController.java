@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Candidat;
 import com.example.demo.model.Category;
+import com.example.demo.model.Offre;
 import com.example.demo.service.CategoryService;
+import com.example.demo.service.OffreService;
 
 @RestController
 @RequestMapping("/cat")
@@ -30,16 +32,21 @@ public class CategoryController {
 	
 	@Autowired
 	CategoryService categoryService;
-	 
+	@Autowired
+	OffreService offreService;
+	
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/")
     public ResponseEntity<List<Category>> getAllCategory( ) {
-		 System.out.println("get Categorys\n");   
-		return new ResponseEntity<>(
-            		categoryService.getAll(),
-            		HttpStatus.OK
-            		);
+	return new ResponseEntity<>(categoryService.getAll(),HttpStatus.OK); 		
     }
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/off/{offId}")
+    public ResponseEntity<Optional<Offre>> getOffreCategory(@PathVariable(value = "offId") Long offId ) {
+	return new ResponseEntity<>(offreService.getByCategoryId(offId),HttpStatus.OK); 		
+    }
+	
 	
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/id/{id}")

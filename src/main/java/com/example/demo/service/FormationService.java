@@ -23,4 +23,6 @@ public interface FormationService {
     List<Formation> getByCreatedAt(Date createdAt);
     
     List<Formation> getByCv(Cv cv);
+
+	List<Formation> getByCvId(Long cvId);
 }

@@ -78,4 +78,10 @@ public class CompetenceServiceImpl implements CompetenceService {
 		return competenceRepository.findAll();
 	}
 
+	@Override
+	public List<Competence> getByCvId(Long cvId) {
+		// TODO Auto-generated method stub
+		return competenceRepository.findByCvId(cvId);
+	}
+
 }

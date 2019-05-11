@@ -33,4 +33,9 @@ public interface OffreRepository extends JpaRepository<Offre, Long> {
 	Optional<Offre> findByRapport(Rapport rapport);
 	Optional<Offre> findByFavorite(Favorite favorite);
 	Optional<Offre> findByPostulation(Postulation postulation);
+	Optional<Offre> findByClientId(Long id);
+	Optional<Offre> findByCategoryId(Long offId);
+	Optional<Offre> findByFavoriteId(Long favoritId);
+	Optional<Offre> findByRapportId(Long rapportId);
+	Optional<Offre> findByLocationId(Long locId);
 }

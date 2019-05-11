@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Candidat;
 import com.example.demo.model.Competence;
 import com.example.demo.model.Cv;
 import com.example.demo.model.Experience;
@@ -183,6 +184,42 @@ public class CvServiceImpl implements CvService {
 	public List<Cv> getByLanguage(Language language) {
 		// TODO Auto-generated method stub
 		return cvRepository.findCvByLanguage(language);
+	}
+
+	@Override
+	public Cv getByCandidat(Candidat can) {
+		// TODO Auto-generated method stub
+		return cvRepository.findByCandidat(can);
+	}
+
+	@Override
+	public Cv getByCandidatId(Long canId) {
+		// TODO Auto-generated method stub
+		return cvRepository.findByCandidatId(canId);
+	}
+
+	@Override
+	public List<Cv> getCvByFormationId(Long formationId) {
+		// TODO Auto-generated method stub
+		return cvRepository.findByFormationId(formationId);
+	}
+
+	@Override
+	public List<Cv> getByCompetenceId(Long competenceId) {
+		// TODO Auto-generated method stub
+		return cvRepository.findByCompetenceId(competenceId);
+	}
+
+	@Override
+	public List<Cv> getByExperienceId(Long experienceId) {
+		// TODO Auto-generated method stub
+		return cvRepository.findByExperienceId(experienceId);
+	}
+
+	@Override
+	public List<Cv> getByLanguageId(Long languageId) {
+		// TODO Auto-generated method stub
+		return cvRepository.findByLanguageId(languageId);
 	}
 
 }

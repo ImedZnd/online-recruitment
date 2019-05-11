@@ -78,4 +78,10 @@ public class LanguageServiceImpl implements LanguageService {
 		return languageRepository.findByReadLevel(readLevel);
 	}
 
+	@Override
+	public List<Language> getByCvId(Long cvId) {
+		// TODO Auto-generated method stub
+		return languageRepository.findByCvId(cvId);
+	}
+
 }

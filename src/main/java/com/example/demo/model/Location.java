@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +30,7 @@ public class Location {
 	private String discription;
 	
 	private int number;
-	
+	@JsonIgnore
 	@OneToMany(mappedBy="location")
 	private Set<Offre> offres;
 }

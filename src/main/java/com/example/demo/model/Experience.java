@@ -18,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -53,6 +55,7 @@ public class Experience {
     @LastModifiedDate
     Date modifiedAt;
     
+    @JsonIgnore
     @ManyToOne(cascade= {CascadeType.ALL})
 	@JoinColumn(name="idCv")
 	private Cv cv;

@@ -19,7 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Client;
+import com.example.demo.model.Offre;
+import com.example.demo.model.Rapport;
 import com.example.demo.service.ClientService;
+import com.example.demo.service.RapportService;
 
 @RestController
 @RequestMapping("/cli")
@@ -28,16 +31,14 @@ public class ClientController {
 	
 	@Autowired
 	ClientService clientService;
+	@Autowired
+	RapportService rapportService;
 
     @GetMapping("/id/{id}")
     public ResponseEntity<Optional<Client>> getClientbyId( @PathVariable(value = "id") Long id) {
-
-        System.out.println("get client with id\n");
-            return new ResponseEntity<>(
-            		clientService.getById(id),
-            		HttpStatus.OK
-            		);
+    return new ResponseEntity<>(clientService.getById(id),HttpStatus.OK);  		
     }
+
     @GetMapping("/srt/{sortby}")
     public ResponseEntity<List> getAllClientsSorted(@PathVariable String sortby){
         System.out.println("get all clients \n");

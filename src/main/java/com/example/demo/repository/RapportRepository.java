@@ -13,9 +13,10 @@ import com.example.demo.model.Rapport;
 
 @Repository
 public interface RapportRepository extends JpaRepository<Rapport, Long> {
-	List<Rapport> findByOffre(Offre offre);
+	List<Rapport> findByOffres(Offre offre);
 	List<Rapport> findByModifiedAt(Date modifiedAt);
 	List<Rapport> findByCreatedAt(Date createdAt);
 	List<Rapport> findByRaisonContaining(String raison);
 	List<Rapport> findByCandidat(Candidat candidat);
+	List<Rapport> findByCandidatId(Long canId);
 }

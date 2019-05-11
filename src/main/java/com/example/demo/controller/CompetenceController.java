@@ -37,9 +37,9 @@ public class CompetenceController {
 	    public ResponseEntity <Optional<Competence>> getById(@PathVariable("id") Long id) {
 	    return new ResponseEntity<>(competenceService.getById(id), HttpStatus.OK);
 	    }
-	    @GetMapping("/can/{cv}")
-	    public ResponseEntity  <List> getUserById(@PathVariable("id") Cv cv) {
-	        return new ResponseEntity<>(competenceService.getByCv(cv), HttpStatus.OK);
+	    @GetMapping("/can/{cvId}")
+	    public ResponseEntity  <List> getUserById(@PathVariable("cvId") Long cvId) {
+	        return new ResponseEntity<>(competenceService.getByCvId(cvId), HttpStatus.OK);
 	    }
 	    @GetMapping("/")
 	    public ResponseEntity<List<Competence>> getAll() {

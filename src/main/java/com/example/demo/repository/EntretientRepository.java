@@ -17,4 +17,5 @@ public interface EntretientRepository extends JpaRepository<Entretient, Long> {
 	List<Entretient> findEntretientByCandidat(Candidat candidat);
 	List<Entretient> findEntretientByCreatedAt(Date createdAt);
 	List<Entretient> findEntretientByModifiedAt(Date modifiedAt);
+	List<Entretient> findByCandidatId(Long canId);
 }

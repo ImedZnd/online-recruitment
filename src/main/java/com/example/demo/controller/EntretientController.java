@@ -38,9 +38,9 @@ public class EntretientController {
 	    public ResponseEntity <Optional<Entretient>> getById(@PathVariable("id") Long id) {
 	    return new ResponseEntity<>(entretientService.getById(id), HttpStatus.OK);
 	    }
-	 @GetMapping("can/{can}")
-	    public ResponseEntity <List<Entretient>> getByCandidat(@PathVariable("can") Candidat can) {
-	    return new ResponseEntity<>(entretientService.getByCandidat(can), HttpStatus.OK);
+	 @GetMapping("can/{canId}")
+	    public ResponseEntity <List<Entretient>> getByCandidat(@PathVariable("canId") Long canId) {
+	    return new ResponseEntity<>(entretientService.getByCandidatId(canId), HttpStatus.OK);
 	    }
 	 
 	 @PostMapping("/add")

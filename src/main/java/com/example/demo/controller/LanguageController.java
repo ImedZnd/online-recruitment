@@ -35,9 +35,9 @@ public class LanguageController {
 	    public ResponseEntity <Optional<Language>> getById(@PathVariable("id") Long id) {
 	    return new ResponseEntity<>(languageService.getById(id), HttpStatus.OK);
 	    }
-	 @GetMapping("cv/{cv}")
-	    public ResponseEntity <List<Language>> getByCv(@PathVariable("cv") Cv cv) {
-	    return new ResponseEntity<>(languageService.getByCv(cv), HttpStatus.OK);
+	 @GetMapping("cv/{cvId}")
+	    public ResponseEntity <List<Language>> getByCv(@PathVariable("cvId") Long cvId) {
+	    return new ResponseEntity<>(languageService.getByCvId(cvId), HttpStatus.OK);
 	    }
 	 
 	 @PostMapping("/add")

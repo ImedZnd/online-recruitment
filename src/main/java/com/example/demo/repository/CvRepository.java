@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.model.Candidat;
 import com.example.demo.model.Competence;
 import com.example.demo.model.Cv;
 import com.example.demo.model.Experience;
@@ -40,5 +41,11 @@ public interface CvRepository extends JpaRepository<Cv, Long> {
 	List<Cv> findCvByCompetence(Competence competence);
 	List<Cv> findCvByExperience(Experience experience);
 	List<Cv> findCvByLanguage(Language language);
+	Cv findByCandidat(Candidat can);
+	Cv findByCandidatId(Long canId);
+	List<Cv> findByFormationId(Long formationId);
+	List<Cv> findByCompetenceId(Long competenceId);
+	List<Cv> findByExperienceId(Long experienceId);
+	List<Cv> findByLanguageId(Long languageId);
 	
 }

@@ -28,4 +28,6 @@ public interface LanguageService {
     List<Language> getByWriteLevel(String writeLevel);
     
     List<Language> getByReadLevel(String readLevel);
+
+	List<Language> getByCvId(Long cvId);
 }

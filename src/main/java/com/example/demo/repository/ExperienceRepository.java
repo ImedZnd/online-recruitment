@@ -18,6 +18,7 @@ public interface ExperienceRepository extends JpaRepository<Experience, Long> {
 	List<Experience> findByEstablishmentName(String establishmentName);
 	List<Experience> findByStart(Date start);
 	List<Experience> findByEnd(Date end);
+	List<Experience> findByCvId(Long cvId);
 	
 //	@Query("SELECT * form Experience where  ")
 //	List<Cv> findByestablishmentNameAndPeriode( String esname,Date start,Date end);

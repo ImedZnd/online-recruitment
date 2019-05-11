@@ -15,4 +15,5 @@ public interface CompetenceRepository extends JpaRepository<Competence, Long> {
 	List<Competence> findCompetenceByLevel(String level);
 	List<Competence> findCompetenceByMonthOfExp(String MonthOfExp);
 	List<Competence> findCompetenceByCv(Cv cv);
+	List<Competence> findByCvId(Long cvId);
 }

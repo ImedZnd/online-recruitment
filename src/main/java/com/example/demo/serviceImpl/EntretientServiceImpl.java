@@ -73,4 +73,10 @@ public class EntretientServiceImpl implements EntretientService {
 		return entretientRepository.findEntretientByModifiedAt(modifiedAt);
 	}
 
+	@Override
+	public List<Entretient> getByCandidatId(Long canId) {
+		// TODO Auto-generated method stub
+		return entretientRepository.findByCandidatId(canId);
+	}
+
 }

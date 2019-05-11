@@ -58,4 +58,14 @@ public interface OffreService {
 	Optional<Offre> getByCategory(Category category);
 
 	Optional<Offre> getByLocation(Location location);
+
+	Optional<Offre> getByClientId(Long id);
+
+	Optional<Offre> getByCategoryId(Long offId);
+
+	Optional<Offre> getByFavoriteId(Long favoritId);
+
+	Optional<Offre> getByRapportId(Long rapportId);
+
+	Optional<Offre> getByLocationId(Long locId);
 }

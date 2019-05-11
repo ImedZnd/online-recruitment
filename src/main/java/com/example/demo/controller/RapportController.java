@@ -37,13 +37,9 @@ public class RapportController {
 	    public ResponseEntity <Optional<Rapport>> getById(@PathVariable("id") Long id) {
 	    return new ResponseEntity<>(rapportService.getById(id), HttpStatus.OK);
 	    }
-	 @GetMapping("can/{can}")
-	    public ResponseEntity <List<Rapport>> getByCan(@PathVariable("can") Candidat candidat) {
-	    return new ResponseEntity<>(rapportService.getByCandidat(candidat), HttpStatus.OK);
-	    }
-	 @GetMapping("ofr/{ofr}")
-	    public ResponseEntity <List<Rapport>> getByOfr(@PathVariable("ofr") Offre offre) {
-	    return new ResponseEntity<>(rapportService.getByOffre(offre), HttpStatus.OK);
+	 @GetMapping("can/{canId}")
+	    public ResponseEntity <List<Rapport>> getByCan(@PathVariable("canId") Long canId) {
+	    return new ResponseEntity<>(rapportService.getByCandidatId(canId), HttpStatus.OK);
 	    }
 	 
 	 @PostMapping("/add")

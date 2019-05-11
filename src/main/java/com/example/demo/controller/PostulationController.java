@@ -36,9 +36,14 @@ public class PostulationController {
 	    public ResponseEntity <Optional<Postulation>> getById(@PathVariable("id") Long id) {
 	    return new ResponseEntity<>(postulationService.getById(id), HttpStatus.OK);
 	    }
-	 @GetMapping("can/{can}")
-	    public ResponseEntity <List<Postulation>> getByCan(@PathVariable("can") Candidat candidat) {
-	    return new ResponseEntity<>(postulationService.getByCandidats(candidat), HttpStatus.OK);
+	 @GetMapping("/can/{canId}")
+	    public ResponseEntity <List<Postulation>> getByCan(@PathVariable("canId") Long canId) {
+	    return new ResponseEntity<>(postulationService.getByCandidatsId(canId), HttpStatus.OK);
+	    }
+	 
+	 @GetMapping("/off/{offId}")
+	    public ResponseEntity <List<Postulation>> getByOff(@PathVariable("offId") Long offId) {
+	    return new ResponseEntity<>(postulationService.getByOffresId(offId), HttpStatus.OK);
 	    }
 	 
 	 @PostMapping("/add")

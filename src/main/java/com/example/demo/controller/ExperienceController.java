@@ -39,9 +39,9 @@ public class ExperienceController {
 		    public ResponseEntity <Optional<Experience>> getById(@PathVariable("id") Long id) {
 		    return new ResponseEntity<>(experienceService.getById(id), HttpStatus.OK);
 		    }
-		 @GetMapping("cv/{cv}")
-		    public ResponseEntity <List<Experience>> getByCv(@PathVariable("cv") Cv cv) {
-		    return new ResponseEntity<>(experienceService.getByCv(cv), HttpStatus.OK);
+		 @GetMapping("cv/{cvId}")
+		    public ResponseEntity <List<Experience>> getByCv(@PathVariable("cvId") Long cvId) {
+		    return new ResponseEntity<>(experienceService.getByCvId(cvId), HttpStatus.OK);
 		    }
 		 
 		 @PostMapping("/add")

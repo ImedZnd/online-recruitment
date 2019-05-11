@@ -20,4 +20,6 @@ public interface CandidatService {
 	    List<Candidat> getBySexe(String sexe);
 
 	    List<Candidat> getBySurename(String surename);
+
+		List<Candidat> getAllCandidat();
 }

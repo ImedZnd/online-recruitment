@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -28,11 +29,11 @@ public class Favorite {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     public Long id;
 	
-	@OneToMany(mappedBy="favorite")
-	private Collection<Offre> offres;
+	@ManyToOne
+	private Offre offres;
 	
-	@OneToMany(mappedBy="favorite")
-	private Collection<Candidat> candidat;
+	@ManyToOne
+	private Candidat candidat;
 	
     @CreatedDate
     Date createdAt;

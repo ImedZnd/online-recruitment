@@ -21,5 +21,7 @@ public interface FavoriteService {
     List<Favorite> getByOffres(Offre offres);
    
     List<Favorite> getByCandidat(Candidat candidat);
+
+	List<Favorite> getByCandidatId(Long canId);
     
 }

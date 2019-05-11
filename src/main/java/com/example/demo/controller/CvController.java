@@ -211,39 +211,39 @@ public class CvController {
                     HttpStatus.OK
             );
     }
-    @GetMapping(value = {"/formation/{formation}"})
-    public ResponseEntity<List> getByFormation( @PathVariable(value = "formation") Formation formation) {
+    @GetMapping(value = {"/formation/{formationId}"})
+    public ResponseEntity<List> getByFormation( @PathVariable(value = "formationId") Long formationId) {
 
         System.out.println("get CV with formation\n");
             return new ResponseEntity<>(
-            		cvService.getByFormation(formation),
+            		cvService.getCvByFormationId(formationId),
                     HttpStatus.OK
             );
     }
-    @GetMapping(value = {"/competence/{competence}"})
-    public ResponseEntity<List> getByCompetence( @PathVariable(value = "competence") Competence competence) {
+    @GetMapping(value = {"/competence/{competenceId}"})
+    public ResponseEntity<List> getByCompetence( @PathVariable(value = "competenceId") Long competenceId) {
 
         System.out.println("get CV with competence\n");
             return new ResponseEntity<>(
-            		cvService.getByCompetence(competence),
+            		cvService.getByCompetenceId(competenceId),
                     HttpStatus.OK
             );
     }
-    @GetMapping(value = {"/experience/{experience}"})
-    public ResponseEntity<List> getByExperience( @PathVariable(value = "competence") Experience experience) {
+    @GetMapping(value = {"/experience/{experienceId}"})
+    public ResponseEntity<List> getByExperience( @PathVariable(value = "experienceId") Long experienceId) {
 
         System.out.println("get CV with experience\n");
             return new ResponseEntity<>(
-            		cvService.getByExperience(experience),
+            		cvService.getByExperienceId(experienceId),
                     HttpStatus.OK
             );
     }
-    @GetMapping(value = {"/language/{language}"})
-    public ResponseEntity<List> getByLanguage( @PathVariable(value = "language") Language language) {
+    @GetMapping(value = {"/language/{languageId}"})
+    public ResponseEntity<List> getByLanguage( @PathVariable(value = "languageId") Long languageId) {
 
         System.out.println("get CV with language\n");
             return new ResponseEntity<>(
-            		cvService.getByLanguage(language),
+            		cvService.getByLanguageId(languageId),
                     HttpStatus.OK
             );
     }

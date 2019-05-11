@@ -23,4 +23,8 @@ public interface PostulationService {
     List<Postulation> getByCandidats(Candidat candidats);
     
     List<Postulation> getByModifiedAt(Date modifiedAt);
+
+	List<Postulation> getByCandidatsId(Long canId);
+
+	List<Postulation> getByOffresId(Long offId);
 }

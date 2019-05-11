@@ -55,4 +55,10 @@ public class FavoriteServiceImpl implements FavoriteService {
 		return favoriteRepository.findByCandidat(candidat);
 	}
 
+	@Override
+	public List<Favorite> getByCandidatId(Long canId) {
+		// TODO Auto-generated method stub
+		return favoriteRepository.findByCandidatId(canId);
+	}
+
 }

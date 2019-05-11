@@ -67,4 +67,10 @@ public class FormationServiceImpl implements FormationService {
 		return formationRepository.findByCv(cv);
 	}
 
+	@Override
+	public List<Formation> getByCvId(Long cvId) {
+		// TODO Auto-generated method stub
+		return formationRepository.findByCvId(cvId);
+	}
+
 }

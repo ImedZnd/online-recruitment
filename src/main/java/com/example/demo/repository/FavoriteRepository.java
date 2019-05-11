@@ -13,5 +13,6 @@ import com.example.demo.model.Offre;
 public interface FavoriteRepository extends JpaRepository<Favorite, Long> {
 	List<Favorite> findByOffres(Offre offre);
 	List<Favorite> findByCandidat(Candidat candidat);
+	List<Favorite> findByCandidatId(Long canId);
 	
 }

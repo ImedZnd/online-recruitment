@@ -18,13 +18,14 @@ public interface RapportService {
 
     Rapport addOne(Rapport Rapport);
 
-    List<Rapport> getByOffre(Offre offre);
-   
-    List<Rapport> getByCandidat(Candidat candidat);
-    
+    List<Rapport> getByOffres(Offre offre);
+       
     List<Rapport> getByRaisonContaining(String raison);
     
     List<Rapport> getByCreatedAt(Date createdAt);
     
     List<Rapport> getByModifiedAt(Date modifiedAt);
+
+	List<Rapport> getByCandidatId(Long canId);
+
 }

@@ -19,6 +19,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import com.example.demo.status.StatusCv;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -52,6 +53,7 @@ public class Formation {
     @LastModifiedDate
     Date modifiedAt;
     
+    @JsonIgnore
     @ManyToOne(cascade= {CascadeType.ALL}									)
 	@JoinColumn(name="idCv")
 	private Cv cv;

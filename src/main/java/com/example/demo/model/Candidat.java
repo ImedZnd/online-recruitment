@@ -22,6 +22,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import com.example.demo.status.StatusCandidat;
 import com.example.demo.status.StatusClient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -62,24 +63,26 @@ public class Candidat extends User {
     @CreatedDate
     Date createdAt;
 
+    @JsonIgnore
     @OneToOne(cascade =  CascadeType.ALL)
 	@JoinColumn(name="idCv") 
     Cv cv;
 	
+    @JsonIgnore
 	@OneToMany(mappedBy="candidat")
 	private Collection<Entretient> entretients;
+    
+    @JsonIgnore
+	@OneToMany(mappedBy="candidat")
+	private Collection<Rapport> rapport;
+    
+    @JsonIgnore
+	@OneToMany(mappedBy="candidat")
+	private Collection<Favorite> favorite;
 	
-	@ManyToOne
-	@JoinColumn(name="idRapport")
-	private Rapport rapport;
-	
-	@ManyToOne
-	@JoinColumn(name="idFavorite")
-	private Favorite favorite;
-	
-	@ManyToOne
-	@JoinColumn(name="idPostulation")
-	private Postulation postulation;
+    @JsonIgnore
+	@OneToMany(mappedBy="candidats")
+	private Collection<Postulation> postulation;
 
 	public Long getId() {
 		return id;
@@ -156,53 +159,29 @@ public class Candidat extends User {
 	public Cv getCv() {
 		return cv;
 	}
-
+	
 	public void setCv(Cv cv) {
 		this.cv = cv;
 	}
-
+	
+	
 	public Collection<Entretient> getEntretients() {
 		return entretients;
 	}
+
 
 	public void setEntretients(Collection<Entretient> entretients) {
 		this.entretients = entretients;
 	}
 
-	public Rapport getRapport() {
-		return rapport;
-	}
 
-	public void setRapport(Rapport rapport) {
-		this.rapport = rapport;
-	}
 
-	public Favorite getFavorite() {
-		return favorite;
-	}
-
-	public void setFavorite(Favorite favorite) {
-		this.favorite = favorite;
-	}
-
-	public Postulation getPostulation() {
-		return postulation;
-	}
-
-	public void setPostulation(Postulation postulation) {
-		this.postulation = postulation;
-	}
-
-	public Candidat() {
-		super();
-	}
-
-	public Candidat(Long id, @NotBlank String name, @NotBlank String surename,
+	public Candidat(Long id, Picture picture, @NotBlank String name, @NotBlank String surename,
 			@NotBlank String password, @NotBlank String sexe, StatusCandidat status, @NotBlank String mail,
-			Date createdAt) {
+			Date createdAt, Cv cv) {
 		super();
 		this.id = id;
-		
+		this.picture = picture;
 		this.name = name;
 		this.surename = surename;
 		this.password = password;
@@ -210,8 +189,35 @@ public class Candidat extends User {
 		this.status = status;
 		this.mail = mail;
 		this.createdAt = createdAt;
+		this.cv = cv;
 	}
 
+	public Candidat() {
+		super();
+	}
 
-	
+	public Collection<Rapport> getRapport() {
+		return rapport;
+	}
+
+	public void setRapport(Collection<Rapport> rapport) {
+		this.rapport = rapport;
+	}
+
+	public Collection<Favorite> getFavorite() {
+		return favorite;
+	}
+
+	public void setFavorite(Collection<Favorite> favorite) {
+		this.favorite = favorite;
+	}
+
+	public Collection<Postulation> getPostulation() {
+		return postulation;
+	}
+
+	public void setPostulation(Collection<Postulation> postulation) {
+		this.postulation = postulation;
+	}
+
 }

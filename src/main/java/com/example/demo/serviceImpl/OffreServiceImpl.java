@@ -156,4 +156,35 @@ public class OffreServiceImpl implements OffreService {
 		return offreRepository.findAll();
 	}
 
+	@Override
+	public Optional<Offre> getByClientId(Long id) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByClientId(id);
+	}
+
+	@Override
+	public Optional<Offre> getByCategoryId(Long offId) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByCategoryId(offId);
+	}
+
+	@Override
+	public Optional<Offre> getByFavoriteId(Long favoritId) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByFavoriteId(favoritId);
+	}
+
+	@Override
+	public Optional<Offre> getByRapportId(Long rapportId) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByRapportId(rapportId);
+	}
+
+	@Override
+	public Optional<Offre> getByLocationId(Long locId) {
+		// TODO Auto-generated method stub
+		return offreRepository.findByLocationId(locId);
+	}
+
+
 }

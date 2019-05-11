@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.model.Candidat;
 import com.example.demo.model.Competence;
 import com.example.demo.model.Cv;
 import com.example.demo.model.Experience;
@@ -66,4 +67,16 @@ public interface CvService {
     List<Cv> getByExperience(Experience experience);
     
     List<Cv> getByLanguage(Language language);
+
+	Cv getByCandidat(Candidat can);
+
+	Cv getByCandidatId(Long canId);
+
+	List<Cv> getCvByFormationId(Long formationId);
+
+	List<Cv> getByCompetenceId(Long competenceId);
+
+	List<Cv> getByExperienceId(Long experienceId);
+
+	List<Cv> getByLanguageId(Long languageId);
 }

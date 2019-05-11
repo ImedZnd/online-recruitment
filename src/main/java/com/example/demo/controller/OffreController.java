@@ -19,15 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Category;
-import com.example.demo.model.Client;
-import com.example.demo.model.Cv;
-import com.example.demo.model.Favorite;
-import com.example.demo.model.Location;
 import com.example.demo.model.Offre;
-import com.example.demo.model.Postulation;
-import com.example.demo.model.Rapport;
-import com.example.demo.repository.PostulationRepository;
 import com.example.demo.service.FavoriteService;
 import com.example.demo.service.OffreService;
 import com.example.demo.service.PostulationService;
@@ -57,6 +49,7 @@ public class OffreController {
         System.out.println("add an offre \n");
         return new ResponseEntity<>(offreService.addOne(offre),HttpStatus.OK);
 		}
+
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping(value = {"/id/{id}"})
@@ -68,6 +61,18 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping(value = {"/client/{id}"})
+    public ResponseEntity<Optional<Offre>> getByClient( @PathVariable(value = "id") Long id) {
+
+        System.out.println("get an offre with id client\n");
+            return new ResponseEntity<>(
+            		offreService.getByClientId(id),
+                    HttpStatus.OK
+            );
+    }
+	
 	@CrossOrigin(origins = "*")
 	@GetMapping(value = {"/"})
     public ResponseEntity<List<Offre>> getAll( ) {
@@ -128,33 +133,25 @@ public class OffreController {
             );
     }
 	@CrossOrigin(origins = "*")
-    @GetMapping(value = {"/favorit/{favorit}"})
-    public ResponseEntity<Optional<Offre>> getByFavorit( @PathVariable(value = "favorit") Favorite favorit) {
+    @GetMapping(value = {"/favorit/{favoritId}"})
+    public ResponseEntity<Optional<Offre>> getByFavorit( @PathVariable(value = "favoritId") Long favoritId) {
 
         System.out.println("get Offre with detail\n");
             return new ResponseEntity<>(
-            		offreService.getByFavorite(favorit),
+            		offreService.getByFavoriteId(favoritId),
                     HttpStatus.OK
             );
     }
-    @GetMapping(value = {"/rapport/{rapport}"})
-    public ResponseEntity<Optional<Offre>> getByRapport( @PathVariable(value = "rapport") Rapport rapport) {
+    @GetMapping(value = {"/rapport/{rapportId}"})
+    public ResponseEntity<Optional<Offre>> getByRapport( @PathVariable(value = "rapportId") Long rapportId) {
 
         System.out.println("get Offre with rapport\n");
             return new ResponseEntity<>(
-            		offreService.getByRapport(rapport),
+            		offreService.getByRapportId(rapportId),
                     HttpStatus.OK
             );
     }
-    @GetMapping(value = {"/postulation/{postulation}"})
-    public ResponseEntity<Optional<Offre>> getByPostulation( @PathVariable(value = "postulation") Postulation postulation) {
 
-        System.out.println("get Offre with postulation\n");
-            return new ResponseEntity<>(
-            		offreService.getByPostulation(postulation),
-                    HttpStatus.OK
-            );
-    }
 
     @GetMapping(value = {"/type/{type}"})
     public ResponseEntity<Optional<Offre>> getByType( @PathVariable(value = "type") String type) {
@@ -174,30 +171,22 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
-    @GetMapping(value = {"/client/{client}"})
-    public ResponseEntity<Optional<Offre>> getByClient( @PathVariable(value = "client") Client client) {
-
-        System.out.println("get Offre with client\n");
-            return new ResponseEntity<>(
-            		offreService.getByClient(client),
-                    HttpStatus.OK
-            );
-    }
-    @GetMapping(value = {"/category/{category}"})
-    public ResponseEntity<Optional<Offre>> getByCategory( @PathVariable(value = "category") Category category) {
+    
+    @GetMapping(value = {"/category/{categoryId}"})
+    public ResponseEntity<Optional<Offre>> getByCategory( @PathVariable(value = "categoryId") Long categoryId) {
 
         System.out.println("get Offre with category\n");
             return new ResponseEntity<>(
-            		offreService.getByCategory(category),
+            		offreService.getByCategoryId(categoryId),
                     HttpStatus.OK
             );
     }
-    @GetMapping(value = {"/location/{location}"})
-    public ResponseEntity<Optional<Offre>> getByLocation( @PathVariable(value = "location") Location location) {
+    @GetMapping(value = {"/location/{locId}"})
+    public ResponseEntity<Optional<Offre>> getByLocationId( @PathVariable(value = "locId") Long locId) {
 
         System.out.println("get Offre with location\n");
             return new ResponseEntity<>(
-            		offreService.getByLocation(location),
+            		offreService.getByLocationId(locId),
                     HttpStatus.OK
             );
     }

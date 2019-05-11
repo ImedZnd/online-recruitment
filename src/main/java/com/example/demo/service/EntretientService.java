@@ -26,4 +26,6 @@ public interface EntretientService {
     List<Entretient> getByCreatedAt(Date createdAt);
     
     List<Entretient> getByModifiedAt(Date modifiedAt);
+
+	List<Entretient> getByCandidatId(Long canId);
 }

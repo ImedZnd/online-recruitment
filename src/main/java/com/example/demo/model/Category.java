@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 import com.example.demo.status.StatusOffre;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class Category {
 	
 	private int number;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="category")
 	private List<Offre> offres;
 }

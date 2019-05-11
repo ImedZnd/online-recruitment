@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,11 +32,11 @@ public class Postulation {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     public Long id;
 	
-	@OneToMany(mappedBy="postulation")
-	private Collection<Offre> offres;
+	@ManyToOne
+	private Offre offres;
 	
-	@OneToMany(mappedBy="postulation")
-	private Collection<Candidat> candidats;
+	@ManyToOne
+	private Candidat candidats;
 	
     @CreatedDate
     Date createdAt;
@@ -51,19 +52,21 @@ public class Postulation {
 		this.id = id;
 	}
 
-	public Collection<Offre> getOffres() {
+
+
+	public Offre getOffres() {
 		return offres;
 	}
 
-	public void setOffres(Collection<Offre> offres) {
+	public void setOffres(Offre offres) {
 		this.offres = offres;
 	}
 
-	public Collection<Candidat> getCandidats() {
+	public Candidat getCandidats() {
 		return candidats;
 	}
 
-	public void setCandidats(Collection<Candidat> candidats) {
+	public void setCandidats(Candidat candidats) {
 		this.candidats = candidats;
 	}
 

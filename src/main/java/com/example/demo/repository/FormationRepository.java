@@ -15,5 +15,6 @@ public interface FormationRepository extends JpaRepository<Formation, Long> {
 	List<Formation> findByEstablishmentNameContaining(String establishmentName);
 	List<Formation> findByCreatedAt(Date createdAt);
 	List<Formation> findByCv(Cv cv);
+	List<Formation> findByCvId(Long cvId);
 	
 }

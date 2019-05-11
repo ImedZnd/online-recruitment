@@ -64,4 +64,10 @@ public class CandidatServiceImpl implements CandidatService {
 		return candidatRepository.findCandidatBySurename(surename);
 	}
 
+	@Override
+	public List<Candidat> getAllCandidat() {
+		// TODO Auto-generated method stub
+		return candidatRepository.findAll();
+	}
+
 }

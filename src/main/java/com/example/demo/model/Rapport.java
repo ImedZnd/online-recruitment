@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -32,13 +33,11 @@ public class Rapport {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     public Long id;
 	
-	@Autowired
-	@OneToMany(mappedBy="rapport")
-	private Set<Offre> offre;
+	@ManyToOne
+	private Offre offres;
 	
-	@Autowired
-	@OneToMany(mappedBy="rapport")
-	private Set<Candidat> candidat;
+	@ManyToOne
+	private Candidat candidat;
 	
 	@NotBlank
 	private String raison;

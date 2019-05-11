@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.CreatedBy;
@@ -16,6 +19,8 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import com.example.demo.status.StatusOffre;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -53,18 +58,18 @@ public class Offre {
 	
 	private StatusOffre statusOffre;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="idClient")
 	private Client client;
 	
-	
-	@ManyToOne
-	@JoinColumn(name="idCategory")
-	private Category category;
-
+	@JsonIgnore
 	@NotBlank
 	@ManyToOne
-	@JoinColumn(name="idLocation")
+	private Category category;
+
+	@JsonIgnore
+	@ManyToOne
 	private Location location;
 	
     @CreatedDate
@@ -73,17 +78,17 @@ public class Offre {
     @LastModifiedDate
     Date modifiedAt;
     
-    @ManyToOne
-	@JoinColumn(name="idRapport")
-	private Rapport rapport;
+    @JsonIgnore
+    @OneToMany(mappedBy="offres")
+	private Collection<Rapport> rapport;
     
-    @ManyToOne
-	@JoinColumn(name="idFavorite")
-	private Favorite favorite;
+    @JsonIgnore
+    @OneToMany(mappedBy="offres")
+	private Collection<Favorite> favorite;
     
-    @ManyToOne
-	@JoinColumn(name="idPostulation")
-	private Postulation postulation;
+    @JsonIgnore
+    @OneToMany(mappedBy="offres")
+	private Collection<Postulation> postulation;
 
 	public Long getId() {
 		return id;
@@ -205,27 +210,28 @@ public class Offre {
 		this.modifiedAt = modifiedAt;
 	}
 
-	public Rapport getRapport() {
+	public Collection<Rapport> getRapport() {
 		return rapport;
 	}
 
-	public void setRapport(Rapport rapport) {
+	public void setRapport(Collection<Rapport> rapport) {
 		this.rapport = rapport;
 	}
 
-	public Favorite getFavorite() {
+	public Collection<Favorite> getFavorite() {
 		return favorite;
 	}
 
-	public void setFavorite(Favorite favorite) {
+	public void setFavorite(Collection<Favorite> favorite) {
 		this.favorite = favorite;
 	}
 
-	public Postulation getPostulation() {
+
+	public Collection<Postulation> getPostulation() {
 		return postulation;
 	}
 
-	public void setPostulation(Postulation postulation) {
+	public void setPostulation(Collection<Postulation> postulation) {
 		this.postulation = postulation;
 	}
 
