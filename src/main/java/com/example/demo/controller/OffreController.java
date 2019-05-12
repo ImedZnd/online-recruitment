@@ -66,7 +66,7 @@ public class OffreController {
 	@GetMapping(value = {"/client/{id}"})
     public ResponseEntity<Optional<Offre>> getByClient( @PathVariable(value = "id") Long id) {
 
-        System.out.println("get an offre with id client\n");
+        System.out.println("get All Offres\n");
             return new ResponseEntity<>(
             		offreService.getByClientId(id),
                     HttpStatus.OK

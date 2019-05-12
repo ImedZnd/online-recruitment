@@ -1,14 +1,10 @@
 package com.example.demo.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,16 +14,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
+public class Tag {
+
 	@Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    public Long id;
-	
-	private String discription;
-	
-	private int number;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="category")
-	private List<Offre> offres;
+	private Long id ;
+	private String name;
+	private String disc;
+	@ManyToOne
+	private Offre offre;
 }
