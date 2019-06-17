@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "responsable")
-public class Responsable extends User{
+public class Responsable {
 
 	@Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)

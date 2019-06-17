@@ -32,7 +32,7 @@ import lombok.NoArgsConstructor;
 //@NoArgsConstructor
 @Entity
 @Table(name = "candidat")
-public class Candidat extends User {
+public class Candidat  {
 
 	@Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -45,13 +45,12 @@ public class Candidat extends User {
 	@NotBlank
 	private String name;
 	
-	@NotBlank
+	
 	private String surename;
 
 	@NotBlank
 	private String password;
 	
-	@NotBlank
 	private String sexe;
 	
     @Enumerated(EnumType.STRING)
@@ -186,7 +185,7 @@ public class Candidat extends User {
 		this.surename = surename;
 		this.password = password;
 		this.sexe = sexe;
-		this.status = status;
+		this.status = StatusCandidat.ACTIVE ;
 		this.mail = mail;
 		this.createdAt = createdAt;
 		this.cv = cv;
@@ -194,6 +193,7 @@ public class Candidat extends User {
 
 	public Candidat() {
 		super();
+		this.status = StatusCandidat.ACTIVE ;
 	}
 
 	public Collection<Rapport> getRapport() {

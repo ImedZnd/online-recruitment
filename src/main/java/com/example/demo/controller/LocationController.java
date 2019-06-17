@@ -60,12 +60,17 @@ public class LocationController {
 	            return new ResponseEntity<>(locationService.addOne(location),HttpStatus.OK);
 	    }
 	    @CrossOrigin(origins = "*")
-	    @DeleteMapping("/delete/{id}")
+	    @DeleteMapping("/delete/id/{id}")
 	    public ResponseEntity deleteCategory(@PathVariable ("id") Long id) {
 
 	            System.out.println("delete a Location \n");
-	            locationService.deleteById(id);
-	            return new ResponseEntity<>(HttpStatus.OK);
+	            
+	            if (locationService.getById(id) != null) {
+	            	locationService.deleteById(id);
+	                return new ResponseEntity<>( HttpStatus.OK);
+	            } else {
+	                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	            }
 	    }
 	    @CrossOrigin(origins = "*")
 	    @PutMapping("/update")

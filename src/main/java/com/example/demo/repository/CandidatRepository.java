@@ -17,5 +17,6 @@ public interface CandidatRepository extends JpaRepository<Candidat,Long>{
     List<Candidat> findCandidatByStatus(Enum<?> status);
 	List<Candidat> findAll();
 	List<Candidat> findByNameContaining(String name);
+	Candidat findByMail(String mail);
 
 }

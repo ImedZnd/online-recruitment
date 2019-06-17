@@ -65,4 +65,16 @@ public class ClientServiceImp  implements ClientService
 		return clientRepository.findClientByName(name);
 	}
 
+	@Override
+	public Optional<Client> getByMail(String mail) {
+		// TODO Auto-generated method stub
+		return clientRepository.findClientByMail(mail);
+	}
+
+	@Override
+	public List<Client> getAll() {
+		// TODO Auto-generated method stub
+		return clientRepository.findAll();
+	}
+
 }

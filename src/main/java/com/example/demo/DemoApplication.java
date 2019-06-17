@@ -9,8 +9,11 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 
 import com.example.demo.model.Candidat;
 import com.example.demo.model.Category;
+import com.example.demo.model.Cv;
 import com.example.demo.model.Offre;
 import com.example.demo.model.Postulation;
+
+import ch.qos.logback.core.net.server.Client;
 
 @SpringBootApplication
 public class DemoApplication extends RepositoryRestConfigurerAdapter   {
@@ -21,7 +24,7 @@ public class DemoApplication extends RepositoryRestConfigurerAdapter   {
 
 	 @Override
 	    public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-	        config.exposeIdsFor(Offre.class,Candidat.class,Category.class,Postulation.class);
+	        config.exposeIdsFor(Offre.class,Candidat.class,Category.class,Postulation.class,Candidat.class,Client.class,Cv.class);
 	    }
 		
 	

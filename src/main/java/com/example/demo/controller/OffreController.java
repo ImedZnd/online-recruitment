@@ -44,7 +44,7 @@ public class OffreController {
 	
 	@CrossOrigin(origins = "*")
     @PostMapping("/add")
-	  public ResponseEntity<Offre> addOffre(@Valid @RequestBody Offre offre) {
+	  public ResponseEntity<Offre> addOffre( @RequestBody Offre offre) {
 
         System.out.println("add an offre \n");
         return new ResponseEntity<>(offreService.addOne(offre),HttpStatus.OK);
@@ -55,7 +55,7 @@ public class OffreController {
 	@GetMapping(value = {"/id/{id}"})
     public ResponseEntity<Optional<Offre>> getById( @PathVariable(value = "id") Long id) {
 
-        System.out.println("get an offre with id\n");
+        System.out.println("get an offre with  id "+ id +"\n");
             return new ResponseEntity<>(
             		offreService.getById(id),
                     HttpStatus.OK
@@ -142,6 +142,7 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/rapport/{rapportId}"})
     public ResponseEntity<Optional<Offre>> getByRapport( @PathVariable(value = "rapportId") Long rapportId) {
 
@@ -152,7 +153,7 @@ public class OffreController {
             );
     }
 
-
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/type/{type}"})
     public ResponseEntity<Optional<Offre>> getByType( @PathVariable(value = "type") String type) {
 
@@ -162,6 +163,7 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/statusOffre/{statusOffre}"})
     public ResponseEntity<Optional<Offre>> getByStatusOffre( @PathVariable(value = "statusOffre") StatusOffre statusOffre) {
 
@@ -171,7 +173,7 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
-    
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/category/{categoryId}"})
     public ResponseEntity<Optional<Offre>> getByCategory( @PathVariable(value = "categoryId") Long categoryId) {
 
@@ -181,6 +183,7 @@ public class OffreController {
                     HttpStatus.OK
             );
     }
+	@CrossOrigin(origins = "*")
     @GetMapping(value = {"/location/{locId}"})
     public ResponseEntity<Optional<Offre>> getByLocationId( @PathVariable(value = "locId") Long locId) {
 

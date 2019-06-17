@@ -1,21 +1,14 @@
 package com.example.demo.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
@@ -47,17 +40,16 @@ public class Offre {
 	@NotEmpty(message = "Please enter title")
 	private String title;
 	
-	@NotEmpty(message = "Please enter type")
 	private String type;
 	
-	 @OneToMany(mappedBy="offre")
-	private Set<Tag> tags;
+	// @OneToMany(mappedBy="offre")
+	private String tags;
 	
-	public Set<Tag> getTags() {
+	public String getTags() {
 		return tags;
 	}
 
-	public void setTags(Set<Tag> tags) {
+	public void setTags(String tags) {
 		this.tags = tags;
 	}
 
@@ -70,8 +62,10 @@ public class Offre {
 	private Date dateLimit;
 		
 	@NotEmpty(message = "Please enter desc")
+	@Column(length = 3000)
 	private String description;
 	
+	@Column(length = 3000)
 	private String details;
 	
 	private StatusOffre statusOffre;

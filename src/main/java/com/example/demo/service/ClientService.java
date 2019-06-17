@@ -23,6 +23,10 @@ public interface ClientService {
     List <Client> getAllBySecteur(String secteur);
     
     List <Client> findAllClientByStatus(String status);
+
+    Optional<Client> getByMail(String mail);
+
+	List <Client> getAll();
     
     
     

@@ -64,10 +64,21 @@ public class CategoryController {
 	            return new ResponseEntity<>(categoryService.addOne(category),HttpStatus.OK);
 	    }
 	    @CrossOrigin(origins = "*")
-	    @DeleteMapping("/delete/{id}")
-	    public ResponseEntity deleteCategory(@PathVariable ("id") Long id) {
+	    @DeleteMapping("/delete/id/{id}")
+	    public ResponseEntity deleteCategoryById(@PathVariable ("id") Long id) {
 	            System.out.println("delete a Category \n");
-	            categoryService.deleteById(id);
+	            if (categoryService.getById(id) != null) {
+	            	categoryService.deleteById(id);
+	                return new ResponseEntity<>( HttpStatus.OK);
+	            } else {
+	                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	            }
+	    }
+	    @CrossOrigin(origins = "*")
+	    @DeleteMapping("/delete/{cat}")
+	    public ResponseEntity deleteCategory(@RequestBody Category cat) {
+	            System.out.println("delete a Category \n");
+	            categoryService.deleteCategory(cat);
 	            return new ResponseEntity<>(HttpStatus.OK);
 	    }
 	    @CrossOrigin(origins = "*")

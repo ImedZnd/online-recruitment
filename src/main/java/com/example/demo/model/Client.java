@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -30,7 +31,7 @@ import lombok.NoArgsConstructor;
 //@AllArgsConstructor
 //@NoArgsConstructor
 @Table(name = "client")
-public class Client extends User {
+public class Client {
 
 	@Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -40,14 +41,14 @@ public class Client extends User {
 	@JoinColumn(name="idPicture")          
 	private Picture picture;
 	
-	@NotBlank
 	private String name;
 	
-	@NotBlank
 	private String secteur;
 	
+	@Column(length = 3000)
 	private String Adresse;
 	
+	@Column(length = 3000)
 	private String description;
 	
 	private Boolean is_engage;
@@ -55,10 +56,8 @@ public class Client extends User {
 	@Enumerated(EnumType.STRING)
 	private StatusClient status;
 	
-	@NotBlank
 	private String mail;
 	
-	@NotBlank
 	private String password;
 	
 	@JsonIgnore

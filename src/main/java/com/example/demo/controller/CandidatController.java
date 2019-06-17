@@ -7,10 +7,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +24,7 @@ import com.example.demo.model.Cv;
 import com.example.demo.model.Rapport;
 import com.example.demo.service.CandidatService;
 import com.example.demo.service.CvService;
-import com.example.demo.service.PostulationService;
 import com.example.demo.service.RapportService;
-import com.example.demo.serviceImpl.CandidatServiceImpl;
 
 @RestController
 @RequestMapping("/can")
@@ -44,8 +40,8 @@ public class CandidatController {
 	
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/id/{id}")
-    public ResponseEntity <Optional<Candidat>> getCandidatbyId( @PathVariable(value = "id") Long id) {
-    return new ResponseEntity<>(candidatService.getById(id),HttpStatus.OK);
+    public ResponseEntity <Optional<Candidat>> getCandidatbyId( @PathVariable(value = "id") Long i) {
+    return new ResponseEntity<>(candidatService.getById(i),HttpStatus.OK);
     }
 	
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -65,6 +61,11 @@ public class CandidatController {
 		 return new ResponseEntity<>(rapportService.getByCandidatId(canId), HttpStatus.OK);
 	    }
     
+	@CrossOrigin(origins = "http://localhost:4200")
+	 @GetMapping("/mail/{mail}")
+	    public ResponseEntity <Candidat> getBymail(@PathVariable("mail") String mail) {
+		 return new ResponseEntity<>(candidatService.getByMail(mail), HttpStatus.OK);
+	    }
 	
 	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/sor/{sortby}")

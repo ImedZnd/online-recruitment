@@ -30,7 +30,7 @@ public class CandidatServiceImpl implements CandidatService {
 	@Override
 	public Optional<Candidat> getById(Long id) {
 		// TODO Auto-generated method stub
-		return candidatRepository.findById(id);
+		return candidatRepository.findById( id);
 	}
 
 	@Override
@@ -68,6 +68,12 @@ public class CandidatServiceImpl implements CandidatService {
 	public List<Candidat> getAllCandidat() {
 		// TODO Auto-generated method stub
 		return candidatRepository.findAll();
+	}
+
+	@Override
+	public Candidat getByMail(String mail) {
+		// TODO Auto-generated method stub
+		return candidatRepository.findByMail(mail);
 	}
 
 }

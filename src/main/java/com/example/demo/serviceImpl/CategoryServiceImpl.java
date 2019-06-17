@@ -60,4 +60,10 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryRepository.findCategoryByOffres(offres);
 	}
 
+	@Override
+	public void deleteCategory(Category cat) {
+		// TODO Auto-generated method stub
+		 categoryRepository.delete(cat);
+	}
+
 }

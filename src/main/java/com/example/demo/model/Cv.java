@@ -42,10 +42,8 @@ public class Cv {
 	@NotBlank
 	private String name;
 	
-	@NotBlank
 	private String surename;
 	
-	@NotBlank
 	private String sexe;
 
 	private Date naissance;

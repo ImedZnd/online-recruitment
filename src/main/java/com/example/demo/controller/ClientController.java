@@ -34,11 +34,21 @@ public class ClientController {
 	@Autowired
 	RapportService rapportService;
 
+	   @GetMapping("/")
+	    public ResponseEntity<List<Client>> getAllClient( ) {
+	    return new ResponseEntity<>(clientService.getAll(),HttpStatus.OK);  		
+	    }
+	
     @GetMapping("/id/{id}")
     public ResponseEntity<Optional<Client>> getClientbyId( @PathVariable(value = "id") Long id) {
     return new ResponseEntity<>(clientService.getById(id),HttpStatus.OK);  		
     }
 
+    @GetMapping("/mail/{mail}")
+    public ResponseEntity<Optional<Client>> getClientbyMail( @PathVariable(value = "mail") String mail) {
+    return new ResponseEntity<>(clientService.getByMail(mail),HttpStatus.OK);  		
+    }
+    
     @GetMapping("/srt/{sortby}")
     public ResponseEntity<List> getAllClientsSorted(@PathVariable String sortby){
         System.out.println("get all clients \n");

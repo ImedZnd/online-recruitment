@@ -21,4 +21,6 @@ public interface CategoryService {
     List<Category> getByOffres(Offre offres);
 
 	List<Category> getByDiscription(String discription);
+
+	void deleteCategory(Category cat);
 }

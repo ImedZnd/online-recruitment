@@ -22,4 +22,6 @@ public interface CandidatService {
 	    List<Candidat> getBySurename(String surename);
 
 		List<Candidat> getAllCandidat();
+
+		Candidat getByMail(String mail);
 }
